@@ -39,7 +39,9 @@
     </div>
 
     <!-- Main Text Area -->
-    <div class="absolute top-80 left-12 text-white drop-shadow-2xl">
+    <div
+      class="absolute h-full pb-12 left-12 text-white drop-shadow-2xl flex flex-col gap-4 justify-end flex-grow-1"
+    >
       <h2 class="text-[96px] leading-tight font-bold">
         Compliance,<br />meet Velocity
       </h2>
