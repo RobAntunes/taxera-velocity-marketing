@@ -1,11 +1,329 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.svelte";
+import { Marquee } from "../components/Marquee.tsx";
+import Card from "../components/Card.svelte";
+import Button from "../components/Button.svelte";
+import "../global.css";
+import { Hamburger } from "svelte-hamburgers";
+import inverse from "../assets/inverse-radius.svg";
+import {
+  BarChart3,
+  Factory,
+  PackageCheck,
+  Receipt,
+  ShoppingCart,
+  Store,
+  Truck,
+  ArrowRight,
+} from "@lucide/svelte";
+import rocket from "../assets/rocket.svg";
+// import Stats from "@/components/Stats";
+import { Calculator } from "@lucide/astro";
+import hero from "../assets/hero.jpg";
+import ImageCard from "../components/ImageCard.svelte";
+import HiW from "@/components/HiW";
+interface ComplianceCategory {
+  icon: any;
+  title: string;
+  description: string;
+}
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const complianceCategories: ComplianceCategory[] = [
+  {
+    icon: Receipt,
+    title: "Indirect Tax",
+    description: "Manage VAT, GST, and sales tax compliance requirements.",
+  },
+  {
+    icon: BarChart3,
+    title: "Finance",
+    description: "Streamline financial reporting compliance.",
+  },
+  {
+    icon: PackageCheck,
+    title: "Customs & Excise",
+    description: "Simplify cross-border trade compliance.",
+  },
+  {
+    icon: Truck,
+    title: "Logistics & Supply Chain",
+    description: "Ensure compliance across global supply chains.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Procurement",
+    description: "Maintain vendor compliance standard.",
+  },
+  {
+    icon: Factory,
+    title: "Manufacturing",
+    description: "Streamline product compliance and certification processes.",
+  },
+  {
+    icon: Calculator,
+    title: "Direct Tax",
+    description: "Simplify income and corporate tax complian.",
+  },
+  {
+    icon: Store,
+    title: "Sales & Distribution",
+    description: "Manage documentation, compliance, and distribution.",
+  },
+];
+
+const insightPacks = [
+  {
+    title: "Essentials",
+    description: "Core compliance monitoring for immediate visibility.",
+    points: ["Basic tax gap analysis", "Standard compliance alerts"],
+  },
+  {
+    title: "Pro",
+    description: "Advanced analytics for proactive management.",
+    points: ["Detailed risk scoring", "Process efficiency metrics"],
+  },
+  {
+    title: "Premium",
+    description: "Strategic intelligence for process optimization.",
+    points: ["Predictive compliance modeling", "Executive dashboards"],
+  },
+];
 ---
 
 <Layout>
-	<Welcome />
-</Layout>
+  <div class="flex justify-end items-center w-full pr-4 fixed top-0 left-0">
+    <Hamburger type="emphatic" client:only="svelte" />
+  </div>
+  <Hero client:load />
+  <div class="bg-[whitesmoke] w-full -mt-20">
+    <Marquee client:only="react">
+      <div
+        class="grid max-w-lg grid-cols-4 items-center gap-x-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5"
+      >
+        <img
+          alt="Transistor"
+          src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg"
+          width={158}
+          height={48}
+          class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+        />
+        <img
+          alt="Reform"
+          src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg"
+          width={158}
+          height={48}
+          class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+        />
+        <img
+          alt="Tuple"
+          src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg"
+          width={158}
+          height={48}
+          class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+        />
+        <img
+          alt="SavvyCal"
+          src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg"
+          width={158}
+          height={48}
+          class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+        />
+        <img
+          alt="Statamic"
+          src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg"
+          width={158}
+          height={48}
+          class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 mr-12"
+        />
+      </div>
+    </Marquee>
+    <section class="w-screen p-16 bg-[whitesmoke]">
+      <div class="h-full relative bg-blue-700 rounded-b-xl">
+        <img
+          src={inverse.src}
+          alt="decoration"
+          class="z-50 absolute left-0 top-0 translate-x-[-95%] rotate-90"
+        />
+        <div class="flex w-full flex-col">
+          <div class="bg-[whitesmoke] w-full flex flex-col items-end">
+            <div class="bg-[whitesmoke] flex w-full right-0 h-full">
+              <img
+                src={inverse.src}
+                alt="decoration"
+                class="z-50 absolute left-0 top-0 translate-x-[-95%] rotate-90"
+              />
+            </div>
+            <div
+              class="bg-[whitesmoke] flex w-full justify-center items-center right-0"
+            >
+              <img
+                src={inverse.src}
+                alt="decoration"
+                class="z-50 absolute left-0 top-0 translate-x-[-95%] rotate-90"
+              />
+            </div>
+            <div class="bg-[whitesmoke] h-[4rem] flex w-full right-0">
+              <img
+                src={inverse.src}
+                alt="decoration"
+                class="z-50 absolute left-0 top-0 translate-x-[-95%] rotate-90"
+              />
+            </div>
+            <div class="gap-x-16 p-20 !text-white bg-blue-700 rounded-t-xl">
+              <h1 class="text-4xl font-bold">
+                Taxera<span class="font-regular mx-3">|</span>eCompliance
+              </h1>
+              <div>
+                <h2 class="text-2xl font-thin p-6 pb-0 text-balance">
+                  Taxera eCompliance delivers rapid integration by providing
+                  data, emphasizing speed and leveraging AI-powered intelligent
+                  analysis to detect compliance issues.
+                </h2>
+                <h2 class="text-2xl font-thin p-6 pt-4 text-balance">
+                  Clear visualizations and actionable intelligence across all
+                  transactions are provided while highlighting priority concerns
+                  requiring immediate attention.
+                </h2>
+                <div
+                  class="italic flex font-thin items-center gap-x-4 pl-6 mt-12 text-lg"
+                >
+                  <p>
+                    Need some help deciding if Taxera's eCompliance solution is
+                    right for you?
+                  </p>
+                  <Button
+                    variant="ghost"
+                    text="You'll never look back"
+                    size={{ height: "2rem", width: "20rem" }}
+                    icon={ArrowRight}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="bg-blue-700 rounded-b-xl">
+          <div class="col-span-4 col-start-1 p-12 pt-0 flex rounded-b-xl">
+            <div class="col-span-4 col-start-1 p-12 pt-0 flex rounded-b-xl">
+              <div
+                class="col-span-4 col-start-1 grid grid-cols-4 rounded-b-xl bg-blue-700 justify-center items-center gap-x-4"
+              >
+                {
+                  complianceCategories.map((el) => {
+                    const Icon = el.icon;
+                    return (
+                      <Card className="flex justify-center flex-col hover:shadow-2xl hover:translate-y-[-4px] text-balance bg-blue-600/80 text-white hover:bg-blue-600 shadow-none transition-all duration-300">
+                        <div>
+                          <Icon class="w-6 h-6 my-[2em]" />
+                        </div>
+                        <div class="flex flex-col justify-center gap-6 mb-3">
+                          <h3 class="text-2xl font-normal">{el.title}</h3>
+                          <p class="text-[16px] font-thin text-pretty p-2 group-hover:text-white">
+                            {el.description}
+                          </p>
+                        </div>
+                      </Card>
+                    );
+                  })
+                }
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="h-full">
+      <div class="h-screen p-20 grid grid-cols-3 gap-x-4">
+        <div class="col-span-3 w-full">
+          <h1 class="text-center text-6xl font-thin">Insight Packs</h1>
+          <h2
+            class="text-center text-2xl font-thin max-w-7xl text-balance mx-auto pt-6 mb-12"
+          >
+            Insight Packs deliver instant, business-ready KPIs — giving you a
+            clear view from global performance down to company code and
+            transaction-level detail. Pick the plan that fits your size, scale,
+            and ambition.
+          </h2>
+          <div class="flex justify-center items-center gap-x-4 font-thin">
+            <p class="text-2xl">Want the full picture?</p>
+            <Button
+              text="Find my pack"
+              size={{ height: "2rem", width: "16rem" }}
+              icon={ArrowRight}
+            />
+          </div>
+        </div>
+        <div class="col-span-3 flex flex-row gap-x-8">
+          {
+            insightPacks.map((el) => {
+              return (
+                <div class="relative flex items-end p-12 pt-0 h-full w-full rounded-lg text-white">
+                  <div class="absolute inset-0">
+                    <ImageCard client:load img={hero.src} />
+                  </div>
+                  <div class="flex justify-center items-center absolute -top-3 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-50">
+                    <div class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-2">
+                      <ArrowRight class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1" />
+                    </div>
+                  </div>
+                  <div class="relative">
+                    <h1 class="text-5xl">{el.title}</h1>
+                    <p class="text-lg text-balance">{el.description}</p>
+                    <ul class="flex flex-col gap-x-4 pt-4 text-lg list-disc">
+                      {el.points.map((point: string) => {
+                        return <li class="text-sm">{point}</li>;
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+    <section class="flex justify-center items-center m-24 bg-[whitesmoke]">
+      <aside
+        class="flex flex-row w-full m-24 pl-12 rounded-xl bg-white h-[40vh] relative shadow-blue-700 shadow-2xl"
+      >
+        <div class="max-w-4xl flex flex-col items-center justify-center">
+          <div class="h-full w-full relative flex flex-col gap-y-8">
+            <div
+              class="absolute flex flex-col font-bold text-white -top-12 -left-32 bg-blue-700 p-12 rounded-lg w-[30rem]"
+            >
+              <h1 class="text-6xl">Velocity</h1>
+              <p class="text-3xl font-thin text-balance relative left-[6rem]">
+                by Taxera
+              </p>
+            </div>
+          </div>
+          <div class="h-full w-full relative flex flex-col gap-y-8">
+            <h1 class="text-5xl font-bold text-blue-700">
+              There's no going back.
+            </h1>
+            <Button
+              size={{ height: "4rem", width: "12rem" }}
+              text="Blast Off"
+              icon={ArrowRight}
+            />
+          </div>
+        </div>
+        <img
+          src={rocket.src}
+          alt="Blast-off illustration"
+          class="w-2/4 absolute right-0 drop-shadow-2xl"
+        />
+      </aside>
+    </section>
+    <section class="flex justify-center items-center mt-24 bg-[whitesmoke] flex-col gap-y-8 h-[60vh] w-screen">
+      <h2 class="text-4xl font-thin pb-12">We win when you win. That's why we've built an intuitive platform that just works.</h2>
+      <h2 class="text-2xl font-regular italic text-blue-700">Four steps for success</h2>
+      <HiW client:load/>
+    </section>
+
+    <!-- <section>
+      <Stats />
+    </section> -->
+  </div></Layout
+>
