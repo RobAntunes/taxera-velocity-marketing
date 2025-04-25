@@ -40,10 +40,10 @@
 
     <!-- Main Text Area -->
     <div
-      class="h-full pl-12 text-white relative z-50 flex flex-col gap-4 justify-end"
+      class="h-full pl-24 text-white relative z-50 flex flex-col gap-4 justify-end"
     >
       <div class="grid grid-cols-12 items-end h-full">
-        <div class="col-span-6 flex flex-col justify-end row-start-2 pb-12">
+        <div class="col-span-6 flex flex-col justify-end row-start-2 pb-24">
           <h2 class="text-[96px] leading-tight font-bold">
             Compliance,<br />meet Velocity
           </h2>
