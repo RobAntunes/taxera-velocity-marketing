@@ -290,7 +290,7 @@ const insightPacks = [
         <div class="max-w-4xl flex flex-col items-center justify-center">
           <div class="h-full w-full relative flex flex-col gap-y-8">
             <div
-              class="absolute flex flex-col font-bold text-white -top-12 -left-32 bg-blue-700 p-12 rounded-lg w-[30rem]"
+              class="relative -top-20 -left-32 flex flex-col font-bold text-white bg-blue-700 shadow-2xl p-12 rounded-lg w-[30rem]"
             >
               <h1 class="text-6xl">Velocity</h1>
               <p class="text-3xl font-thin text-balance relative left-[6rem]">
@@ -298,15 +298,17 @@ const insightPacks = [
               </p>
             </div>
           </div>
-          <div class="h-full w-full relative flex flex-col gap-y-8">
-            <h1 class="text-5xl font-bold text-blue-700">
-              There's no going back.
-            </h1>
-            <Button
-              size={{ height: "4rem", width: "12rem" }}
-              text="Blast Off"
-              icon={ArrowRight}
-            />
+          <div class="h-full w-full relative flex flex-col">
+            <div class="flex flex-col gap-y-8">
+              <h1 class="text-5xl font-bold text-blue-700">
+                There's no going back.
+              </h1>
+              <Button
+                size={{ height: "4rem", width: "12rem" }}
+                text="Blast Off"
+                icon={ArrowRight}
+              />
+            </div>
           </div>
         </div>
         <img
@@ -316,10 +318,17 @@ const insightPacks = [
         />
       </aside>
     </section>
-    <section class="flex justify-center items-center mt-24 bg-[whitesmoke] flex-col gap-y-8 h-[60vh] w-screen">
-      <h2 class="text-4xl font-thin pb-12">We win when you win. That's why we've built an intuitive platform that just works.</h2>
-      <h2 class="text-2xl font-regular italic text-blue-700">Four steps for success</h2>
-      <HiW client:load/>
+    <section
+      class="flex justify-center items-center mt-24 bg-[whitesmoke] flex-col gap-y-8 h-[60vh] w-screen"
+    >
+      <h2 class="text-4xl font-thin pb-12 break-words">
+        We win when you win. That's why we've built an intuitive platform that
+        just works.
+      </h2>
+      <h2 class="text-2xl font-regular italic text-blue-700">
+        Four steps for success
+      </h2>
+      <HiW client:load />
     </section>
 
     <!-- <section>
