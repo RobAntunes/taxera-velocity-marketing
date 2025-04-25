@@ -69,7 +69,7 @@
       class="flex bottom-0 right-0 text-white justify-end items-end w-full h-full"
     >
       <p
-        class=" text-white drop-shadow-2xl font-regular text-md relative z-50 p-4 w-1/4 text-balance leading-normal h-full flex items-end flex-wrap break-words"
+        class=" text-white drop-shadow-2xl font-regular text-md relative z-50 p-4 bottom-1 w-1/4 text-balance leading-normal h-full flex items-end flex-wrap break-words"
       >
         Streamlining tax compliance for complex regulatory environments.
       </p>
@@ -120,9 +120,8 @@
                 class="z-50 left-0 bottom-0 translate-x-[-99%] rotate-[180deg]"
               />
             </div> -->
-            <p class="text-[whitesmoke] text-[16px] text-balance col-span-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
+            <p class="text-[whitesmoke] gap-y-4 text-[16px] text-balance col-span-2">
+              Find out how Taxera can help you achieve compliance in record time, with a few clicks.
             </p>
             <img
               src={tax.src}
