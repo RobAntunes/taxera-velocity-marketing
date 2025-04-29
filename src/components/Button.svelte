@@ -7,6 +7,7 @@
     textColor = "white",
     hoverColor = "blue-500",
     icon = null,
+    class: className = "",
   } = $props();
 
   const Icon = icon;
@@ -20,9 +21,9 @@
   };
 </script>
 
-{#snippet button(text, variant, size)}
+{#snippet button(text, variant, size, className)}
   <button
-    class={getButtonClass(variant) + " flex flex-row gap-x-2 justify-center items-center group"}
+    class="{getButtonClass(variant)} {className} flex flex-row gap-x-2 justify-center items-center group"
     style={`height: ${size.height}; width: ${size.width};`}
   >
     {text}
@@ -32,4 +33,4 @@
   </button>
 {/snippet}
 
-{@render button(text, variant, size)}
+{@render button(text, variant, size, className)}
