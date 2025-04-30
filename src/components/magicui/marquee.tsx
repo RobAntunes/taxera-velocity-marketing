@@ -45,14 +45,14 @@ export function Marquee({
     <div
       {...props}
       className={cn(
-        "group flex overflow-hidden p-2 pt-0 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
+        "group flex overflow-hidden p-2 py-8 [--duration:40s] [--gap:6rem] [gap:var(--gap)]",
         "md:[--duration:60s]",
         "lg:[--duration:80s]",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
         },
-        "flex-grow",
+        "flex-grow-[0.25]",
         "bg-[whitesmoke]",
         className,
       )}

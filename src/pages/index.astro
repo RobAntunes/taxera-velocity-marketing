@@ -97,52 +97,48 @@ const insightPacks = [
   </div>
   <div class=" w-full mb-0 flex flex-col h-screen">
     <Hero client:load />
-    <Marquee client:only="react">
-      <div
-        class="flex flex-row items-center justify-end sm:max-w-xl lg:mx-0 lg:max-w-none lg:grid-cols-5"
-      >
-        <img
-          alt="Transistor"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg"
-          width={158}
-          height={48}
-          class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-        />
-        <img
-          alt="Reform"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg"
-          width={158}
-          height={48}
-          class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-        />
-        <img
-          alt="Tuple"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg"
-          width={158}
-          height={48}
-          class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-        />
-        <img
-          alt="SavvyCal"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg"
-          width={158}
-          height={48}
-          class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-        />
-        <img
-          alt="Statamic"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg"
-          width={158}
-          height={48}
-          class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 mr-12"
-        />
-      </div>
+    <Marquee client:only="react" className="flex-shrink-0">
+      <img
+        alt="Transistor"
+        src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg"
+        width={158}
+        height={48}
+        class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+      />
+      <img
+        alt="Reform"
+        src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg"
+        width={158}
+        height={48}
+        class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+      />
+      <img
+        alt="Tuple"
+        src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg"
+        width={158}
+        height={48}
+        class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+      />
+      <img
+        alt="SavvyCal"
+        src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg"
+        width={158}
+        height={48}
+        class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+      />
+      <img
+        alt="Statamic"
+        src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg"
+        width={158}
+        height={48}
+        class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 mr-12"
+      />
     </Marquee>
   </div>
 
-  <div class="bg-[whitesmoke]">
-    <section class="h-full lg:bg-[whitesmoke] bg-blue-700">
-      <div class="relative bg-blue-700 lg:rounded-xl">
+  <div class="bg-[whitesmoke] lg:p-16">
+    <section class="h-full lg:bg-[whitesmoke] bg-blue-700 rounded-t-xl">
+      <div class="relative bg-blue-700 rounded-t-xl">
         <div class="flex w-full flex-col">
           <div
             class="h-full gap-x-16 p-12 pb-24 lg:p-20 !text-white bg-blue-700 rounded-t-xl"
