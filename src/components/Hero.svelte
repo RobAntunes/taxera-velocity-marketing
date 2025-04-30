@@ -60,11 +60,12 @@
               <div
                 class="flex md:flex-row flex-col gap-4 justify-center lg:justify-start items-center"
               >
-                <Button
-                  text="Get Started"
-                  variant="primary"
-                  class="w-[160px] h-[50px]"
-                />
+                <a
+                  href="#how-it-works"
+                  class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-600/90 w-[160px] h-[50px]"
+                >
+                  Get Started
+                </a>
                 <Button
                   text="Learn More"
                   variant="ghost"
