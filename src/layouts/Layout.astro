@@ -1,5 +1,7 @@
---- 
-import Analytics from '@vercel/analytics/astro'
+---
+import Analytics from "@vercel/analytics/astro";
+import Header from "@/components/Header.svelte";
+import Footer from "@/components/Footer.svelte";
 
 interface Props {
   title?: string;
@@ -15,12 +17,14 @@ const { title = "Taxera eCompliance" } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Taxera | Velocity</title>
+    <title>Velocity | Taxera eCompliance</title>
   </head>
   <body>
     <main class="bg-[whitesmoke]">
       <Analytics />
+      <Header client:only="svelte" />
       <slot />
+      <Footer />
     </main>
   </body>
 </html>
