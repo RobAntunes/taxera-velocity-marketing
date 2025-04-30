@@ -93,7 +93,7 @@ const insightPacks = [
 
 <Layout>
   <Header client:only="svelte" />
-  <div class="w-full mb-0 flex flex-col h-[94%]">
+  <div class="w-full mb-0 flex flex-col mt-16 lg:mt-0 h-[calc(100%-64px)]">
     <Hero client:load />
     <!-- <Marquee client:only="react" className="flex-shrink-0">
       <img
@@ -139,7 +139,7 @@ const insightPacks = [
       <div class="relative bg-blue-700 lg:rounded-t-xl">
         <div class="flex w-full flex-col">
           <div
-            class="h-full gap-x-16 p-4 pb-24 lg:p-20 !text-white bg-blue-700 rounded-t-xl"
+            class="h-full gap-x-16 p-4 pb-12 lg:p-20 !text-white bg-blue-700 rounded-t-xl"
           >
             <h1
               class="text-xl text-center lg:text-left lg:text-4xl font-bold mt-4 lg:mt-0"
@@ -291,7 +291,7 @@ const insightPacks = [
                 There's no going back.
               </h1>
               <VideoSection
-                className="lg:w-[50%] md:w-[40%] w-[60%] !h-[4rem] rounded-xl font-bold"
+                className="lg:w-[50%] md:w-[40%] w-[70%] !h-[4rem] rounded-xl font-bold"
                 buttonBgColor="blue-700"
                 client:load
                 playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}
