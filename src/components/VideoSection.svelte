@@ -33,7 +33,7 @@
 </script>
 
 <div
-  class={`italic flex items-start justify-start font-thin text-lg flex-col lg:flex-row rounded-full`}
+  class={`italic flex items-center justify-center font-thin text-lg flex-col lg:flex-row rounded-full`}
 >
   <p class="mb-4 lg:mb-0 rounded-full text-center" style={textColor ? `color: ${textColor}` : ""}>
     {text}
