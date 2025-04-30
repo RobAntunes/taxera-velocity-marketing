@@ -138,7 +138,7 @@ const insightPacks = [
 
   <div class="bg-[whitesmoke] lg:p-16">
     <section class="h-full lg:bg-[whitesmoke] bg-blue-700 rounded-t-xl">
-      <div class="relative bg-blue-700 rounded-t-xl">
+      <div class="relative bg-blue-700 lg:rounded-t-xl">
         <div class="flex w-full flex-col">
           <div
             class="h-full gap-x-16 p-12 pb-24 lg:p-20 !text-white bg-blue-700 rounded-t-xl"
@@ -147,7 +147,7 @@ const insightPacks = [
               class="text-xl text-center lg:text-left lg:text-4xl font-bold mt-4 lg:mt-0"
             >
               Velocity
-              <span class="font-regular mx-3">|</span>
+              <span class="font-thin mx-3">|</span>
               <span class="font-thin italic">A Taxera Product</span>
             </h1>
             <div class="">
@@ -184,13 +184,13 @@ const insightPacks = [
         <div class="flex rounded-b-xl justify-center items-center">
           <div class="pt-0 flex rounded-b-xl p-4">
             <div
-              class="md:flex md:flex-col lg:grid xl:grid-cols-4 gap-4 w-full h-full lg:grid-cols-2 text-balance rounded-b-xl bg-blue-700 justify-center items-center"
+              class="flex flex-col md:grid xl:grid-cols-4 gap-4 w-full h-full lg:grid-cols-2 text-balance rounded-b-xl bg-blue-700 justify-center items-center"
             >
               {
                 complianceCategories.map((el) => {
                   const Icon = el.icon;
                   return (
-                    <Card className="h-full w-full flex mb-4 lg:nth-of-type-[7]:mb-0 last:mb-0 justify-center flex-col hover:shadow-2xl hover:translate-y-[-4px] text-balance bg-blue-600/80 text-white hover:bg-blue-600 shadow-none transition-all duration-300 rounded-xl">
+                    <Card className="h-full w-full flex mb-0 justify-center flex-col hover:shadow-2xl hover:translate-y-[-4px] text-balance bg-blue-600/80 text-white hover:bg-blue-600 shadow-none transition-all duration-300 rounded-xl">
                       <div>
                         <Icon class="w-6 h-6 my-[2em]" />
                       </div>
@@ -211,10 +211,10 @@ const insightPacks = [
     </section>
     <section class="h-full w-full bg-[whitesmoke]">
       <div
-        class="p-4 lg:p-20 mt-12 lg:grid lg:grid-cols-3 gap-x-4 flex flex-col justify-center items-center"
+        class="gap-x-4 flex flex-col justify-center items-center"
       >
         <div class="col-span-3 w-full">
-          <h1 class="text-center text-6xl font-thin">Insight Packs</h1>
+          <h1 class="text-center text-6xl font-thin pt-12">Insight Packs</h1>
           <h2
             class="text-center lg:text-2xl text-lg font-thin max-w-7xl text-balance mx-auto pt-6 mb-12"
           >
@@ -224,23 +224,23 @@ const insightPacks = [
             and ambition.
           </h2>
           <div
-            class="flex lg:flex-row flex-col justify-center items-center gap-x-4 font-thin"
+            class="flex my-4 lg:flex-row flex-col justify-center items-center gap-x-4 font-thin"
           >
             <p class="lg:text-2xl text-xl">Want the full picture?</p>
             <Button
               text="Find my pack"
-              class="lg:w-[16rem] w-[12rem] h-[2rem] mt-4"
+              class="lg:w-[16rem] w-[12rem] h-[2rem]"
               icon={ArrowRight}
             />
           </div>
         </div>
         <div
-          class="col-span-3 flex flex-col lg:gap-y-8 lg:flex-row lg:gap-x-8 w-[80%]"
+          class="col-span-3 flex flex-col lg:gap-y-8 lg:flex-row lg:gap-x-4"
         >
           {
             insightPacks.map((el) => {
               return (
-                <div class="h-full relative flex flex-col md:flex-row items-end p-12 rounded-lg text-white mt-12 aspect-square">
+                <div class="relative flex flex-col md:flex-row items-end p-12 rounded-lg text-white mt-12 aspect-square">
                   <div class="absolute inset-0">
                     <ImageCard client:load img={hero.src} />
                   </div>
