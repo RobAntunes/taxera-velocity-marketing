@@ -34,7 +34,9 @@
         eCompliance
       </h1>
     </div>
-    <div class="h-full flex flex-col justify-center items-center lg:justify-end xl:items-start">
+    <div
+      class="h-full flex flex-col justify-center items-center lg:justify-end xl:items-start"
+    >
       <div
         class="flex flex-col items-center justify-center lg:justify-end xl:justify-end"
       >
@@ -66,14 +68,19 @@
                 >
                   Get Started
                 </a>
-                <Button
-                  text="Learn More"
-                  variant="ghost"
-                  class="w-[160px] h-[50px]"
-                  bgColor="blue-700"
-                  hoverColor="blue-700"
-                  textColor="white"
-                />
+                <a
+                  href={"https://fefgnmac41fborlf.public.blob.vercel-storage.com/Taxera-eCompliance-zQBDOn4VJr8pF8wNbyaFLNdS0pmvnL.pdf"}
+                  download
+                  target="_blank"
+                >
+                  <Button
+                    text="Learn More"
+                    variant="ghost"
+                    className="w-[160px] h-[50px] bg-transparent"
+                    hoverColor="blue-700"
+                    textColor="white"
+                  />
+                </a>
               </div>
             </div>
             <div
