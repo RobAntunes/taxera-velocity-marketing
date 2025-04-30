@@ -4,6 +4,7 @@
   import { ArrowRight } from "@lucide/svelte";
   import Button from "./Button.svelte";
   import { Marquee } from "./magicui/marquee";
+  import VideoSection from "./VideoSection.svelte";
 </script>
 
 <section
@@ -11,7 +12,7 @@
   bg-[whitesmoke] lg:mx-16 mx-0 relative 
   bg-cover bg-center lg:rounded-3xl
   bg-[url('/assets/hero.jpg')]
-  flex-grow flex justify-between lg:mt-24
+  flex-grow flex justify-between mt-16
 `}
 >
   <div class="relative z-10 flex flex-col lg:justify-between w-full">
@@ -50,7 +51,7 @@
               class="flex flex-col col-span-8 row-start-2 lg:max-w-none justify-center lg:pb-24 lg:p-12"
             >
               <h2
-                class="leading-tight font-bold text-5xl sm:text-[4em] xl:text-[5em] text-[2em] lg:text-left text-center max-w-xl md:max-w-none"
+                class="leading-tight font-bold text-5xl sm:text-[4em] xl:text-[5em] text-[3em] lg:text-left text-center max-w-xl md:max-w-none"
               >
                 Compliance,{" "}meet Velocity
               </h2>
@@ -66,7 +67,8 @@
                   href="#how-it-works"
                   class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-600/90 w-[160px] h-[50px]"
                 >
-                  Get Started
+                  Steps 4 Success
+                  <ArrowRight class="w-4 h-4 ml-2" />
                 </a>
                 <a
                   href={"https://fefgnmac41fborlf.public.blob.vercel-storage.com/Taxera-eCompliance-zQBDOn4VJr8pF8wNbyaFLNdS0pmvnL.pdf"}
@@ -76,7 +78,7 @@
                   <Button
                     text="Learn More"
                     variant="ghost"
-                    className="w-[160px] h-[50px] bg-transparent"
+                    className="w-[160px] h-[50px] bg-transparent rounded-lg "
                     hoverColor="blue-700"
                     textColor="white"
                   />
@@ -112,10 +114,14 @@
                     class="flex justify-center items-center absolute top-0 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-[60]"
                   >
                     <div
-                      class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-2"
+                      class="bg-blue-700 text-[whitesmoke] text-md rounded-full"
                     >
-                      <ArrowRight
-                        class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1"
+                      <VideoSection
+                        buttonText=""
+                        textColor="white"
+                        className="bg-blue-700 border-none mt-0 p-2 rounded-full w-full h-full"
+                        playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}
+                        text=""
                       />
                     </div>
                   </div>

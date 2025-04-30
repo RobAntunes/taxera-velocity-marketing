@@ -160,9 +160,9 @@ const insightPacks = [
                 requiring immediate attention.
               </h2>
               <VideoSection
-                className="w-[30%]"
                 buttonText="You'll never look back"
                 textColor="white"
+                className="rounded-full lg:ml-4 w-[60%]"
                 client:load
                 playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}
                 text="Need some help deciding if Taxera's eCompliance solution is right for you?"
@@ -219,12 +219,11 @@ const insightPacks = [
             <a
               href={"https://fefgnmac41fborlf.public.blob.vercel-storage.com/Taxera-eCompliance-zQBDOn4VJr8pF8wNbyaFLNdS0pmvnL.pdf"}
               download
-              target="_blank"
             >
               <Button
                 textColor="white"
                 text="Find my pack"
-                className="lg:w-[16rem] w-[12rem] h-[2rem]" 
+                className="lg:w-[16rem] w-[8rem] h-[2rem] rounded-full" 
                 icon={ArrowRight}
               />
             </a>
@@ -241,8 +240,8 @@ const insightPacks = [
                     <ImageCard client:load img={hero.src} />
                   </div>
                   <div class="flex justify-center items-center absolute -top-3 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-50">
-                    <div class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-2">
-                      <ArrowRight class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1" />
+                    <div class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-5">
+                      {/* <ArrowRight class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1" /> */}
                     </div>
                   </div>
                   <div class="relative">
@@ -288,7 +287,7 @@ const insightPacks = [
                 There's no going back.
               </h1>
               <VideoSection
-                className="w-[40%] !h-[4rem]"
+                className="w-[40%] !h-[4rem] rounded-xl"
                 buttonBgColor="blue-700"
                 client:load
                 playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}
