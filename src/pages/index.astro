@@ -148,21 +148,23 @@ const insightPacks = [
               <span class="font-thin mx-3">|</span>
               <span class="font-thin italic">A Taxera Product</span>
             </h1>
-            <div class="">
+            <div>
               <h2 class="lg:text-2xl text-xl font-thin p-6 pb-0 text-balance">
                 Taxera eCompliance delivers rapid integration by providing data,
                 emphasizing speed and leveraging AI-powered intelligent analysis
                 to detect compliance issues.
               </h2>
-              <h2 class="lg:text-2xl text-xl font-thin p-6 pt-4 text-balance">
+              <h2
+                class="lg:text-2xl text-xl font-thin p-6 pt-4 text-balance mb-12"
+              >
                 Clear visualizations and actionable intelligence across all
                 transactions are provided while highlighting priority concerns
                 requiring immediate attention.
               </h2>
               <VideoSection
-                className="w-[30%]"
                 buttonText="You'll never look back"
                 textColor="white"
+                className="rounded-full lg:ml-4 h-min px-6 w-[70%] md:w-[40%] lg:w-[30%] text-sm lg:text-lg"
                 client:load
                 playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}
                 text="Need some help deciding if Taxera's eCompliance solution is right for you?"
@@ -219,12 +221,11 @@ const insightPacks = [
             <a
               href={"https://fefgnmac41fborlf.public.blob.vercel-storage.com/Taxera-eCompliance-zQBDOn4VJr8pF8wNbyaFLNdS0pmvnL.pdf"}
               download
-              target="_blank"
             >
               <Button
                 textColor="white"
                 text="Find my pack"
-                className="lg:w-[16rem] w-[12rem] h-[2rem]" 
+                className="lg:w-[16rem] px-6 h-[2rem] rounded-full"
                 icon={ArrowRight}
               />
             </a>
@@ -241,8 +242,8 @@ const insightPacks = [
                     <ImageCard client:load img={hero.src} />
                   </div>
                   <div class="flex justify-center items-center absolute -top-3 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-50">
-                    <div class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-2">
-                      <ArrowRight class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1" />
+                    <div class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-5">
+                      {/* <ArrowRight class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1" /> */}
                     </div>
                   </div>
                   <div class="relative">
@@ -270,25 +271,27 @@ const insightPacks = [
         <div class="max-w-4xl flex flex-col items-center justify-center p-12">
           <div class="relative flex flex-col">
             <div
-              class="relative -top-20 lg:-left-32 py-3 px-12 flex flex-col font-bold text-white bg-blue-700 shadow-2xl lg:p-12 rounded-lg lg:w-[30rem]"
+              class="relative -top-20 lg:-left-46 py-3 pl-6 pr-12 flex flex-col items-center font-bold text-white bg-blue-700 shadow-2xl lg:p-12 rounded-lg lg:w-[30rem]"
             >
-              <h1 class="lg:text-6xl text-4xl">Velocity</h1>
-              <p
-                class="lg:text-3xl text-xl font-thin text-balance relative text-center left-[2rem] lg:left-[6rem]"
-              >
-                by Taxera
-              </p>
+              <div>
+                <h1 class="lg:text-6xl text-4xl">Velocity</h1>
+                <p
+                  class="lg:text-3xl text-xl font-thin text-balance text-right relative"
+                >
+                  by Taxera
+                </p>
+              </div>
             </div>
           </div>
           <div class="h-full w-full relative flex flex-col -top-12">
             <div class="flex flex-col gap-y-8">
               <h1
-                class="lg:text-5xl text-3xl text-left font-bold text-blue-700"
+                class="text-left text-xl md:text-3xl lg:text-5xl font-bold text-blue-700"
               >
                 There's no going back.
               </h1>
               <VideoSection
-                className="w-[40%] !h-[4rem]"
+                className="lg:w-[50%] md:w-[40%] w-[60%] !h-[4rem] rounded-xl font-bold"
                 buttonBgColor="blue-700"
                 client:load
                 playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}

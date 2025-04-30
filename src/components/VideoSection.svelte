@@ -33,9 +33,9 @@
 </script>
 
 <div
-  class={`italic flex font-thin items-start gap-x-4 mt-12 text-lg flex-col lg:flex-row`}
+  class={`italic flex items-start justify-start font-thin text-lg flex-col lg:flex-row rounded-full`}
 >
-  <p class="mb-4 lg:mb-0" style={textColor ? `color: ${textColor}` : ""}>
+  <p class="mb-4 lg:mb-0 rounded-full text-center" style={textColor ? `color: ${textColor}` : ""}>
     {text}
   </p>
   <Button
@@ -47,6 +47,7 @@
     onClick={openModal}
     className={cn(
       "px-4",
+      "rounded-lg",
       className
     )}
   />
