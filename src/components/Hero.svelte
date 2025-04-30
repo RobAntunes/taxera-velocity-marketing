@@ -12,7 +12,7 @@
   bg-[whitesmoke] lg:mx-16 mx-0 relative 
   bg-cover bg-center lg:rounded-3xl
   bg-[url('/assets/hero.jpg')]
-  flex-grow flex justify-between mt-16
+  flex-grow flex justify-between mt-28
 `}
 >
   <div class="relative z-10 flex flex-col lg:justify-between w-full">

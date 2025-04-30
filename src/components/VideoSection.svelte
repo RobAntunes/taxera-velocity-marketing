@@ -33,9 +33,9 @@
 </script>
 
 <div
-  class={`italic flex font-thin text-lg flex-col lg:flex-row rounded-full`}
+  class={`italic flex items-start justify-start font-thin text-lg flex-col lg:flex-row rounded-full`}
 >
-  <p class="mb-4 lg:mb-0 rounded-full" style={textColor ? `color: ${textColor}` : ""}>
+  <p class="mb-4 lg:mb-0 rounded-full text-center" style={textColor ? `color: ${textColor}` : ""}>
     {text}
   </p>
   <Button
