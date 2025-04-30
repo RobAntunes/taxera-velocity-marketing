@@ -92,14 +92,14 @@ const insightPacks = [
 ---
 
 <Layout>
-  <div class="flex justify-end items-center w-full pr-4 fixed top-0 left-0 z-[99]">
+  <div class="flex justify-end items-end w-full top-0 left-0 z-[99]">
     <Hamburger type="emphatic" client:only="svelte" />
   </div>
-  <Hero client:load />
-  <div class="bg-[whitesmoke] w-full -mt-20">
+  <div class=" w-full mb-0 flex flex-col h-screen">
+    <Hero client:load />
     <Marquee client:only="react">
       <div
-        class="flex flex-row items-center gap-x-26 sm:max-w-xl sm:gap-x-26 lg:mx-0 lg:max-w-none lg:grid-cols-5"
+        class="flex flex-row items-center justify-end sm:max-w-xl lg:mx-0 lg:max-w-none lg:grid-cols-5"
       >
         <img
           alt="Transistor"
@@ -138,8 +138,11 @@ const insightPacks = [
         />
       </div>
     </Marquee>
-    <section class="lg:bg-[whitesmoke] bg-blue-700">
-      <div class="h-full relative bg-blue-700 lg:rounded-xl">
+  </div>
+
+  <div class="bg-[whitesmoke]">
+    <section class="h-full lg:bg-[whitesmoke] bg-blue-700">
+      <div class="relative bg-blue-700 lg:rounded-xl">
         <div class="flex w-full flex-col">
           <div
             class="h-full gap-x-16 p-12 pb-24 lg:p-20 !text-white bg-blue-700 rounded-t-xl"
@@ -191,7 +194,7 @@ const insightPacks = [
                 complianceCategories.map((el) => {
                   const Icon = el.icon;
                   return (
-                    <Card className="h-full w-full flex mb-4 last:mb-0 justify-center flex-col hover:shadow-2xl hover:translate-y-[-4px] text-balance bg-blue-600/80 text-white hover:bg-blue-600 shadow-none transition-all duration-300 rounded-xl">
+                    <Card className="h-full w-full flex mb-4 lg:nth-of-type-[7]:mb-0 last:mb-0 justify-center flex-col hover:shadow-2xl hover:translate-y-[-4px] text-balance bg-blue-600/80 text-white hover:bg-blue-600 shadow-none transition-all duration-300 rounded-xl">
                       <div>
                         <Icon class="w-6 h-6 my-[2em]" />
                       </div>
@@ -210,8 +213,10 @@ const insightPacks = [
         </div>
       </section>
     </section>
-  <section class="h-full w-full bg-[whitesmoke]">
-      <div class="p-4 lg:p-20 mt-12 lg:grid lg:grid-cols-3 gap-x-4 flex flex-col justify-center items-center">
+    <section class="h-full w-full bg-[whitesmoke]">
+      <div
+        class="p-4 lg:p-20 mt-12 lg:grid lg:grid-cols-3 gap-x-4 flex flex-col justify-center items-center"
+      >
         <div class="col-span-3 w-full">
           <h1 class="text-center text-6xl font-thin">Insight Packs</h1>
           <h2

@@ -3,23 +3,20 @@
   import tax from "../assets/tax.jpg";
   import { ArrowRight } from "@lucide/svelte";
   import Button from "./Button.svelte";
-  import hero from "../assets/hero.jpg";
+  import { Marquee } from "./magicui/marquee";
 </script>
 
 <section
-  class=" bg-[whitesmoke] w-full h-full flex justify-center items-center"
+  class={`
+  bg-[whitesmoke] lg:mx-16 mx-0 relative 
+  bg-cover bg-center lg:rounded-3xl
+  bg-[url('/assets/hero.jpg')]
+  flex-grow flex justify-between
+`}
 >
-  <div class="h-full w-full flex flex-col justify-between items-start">
-    <!-- Image takes full container size and is positioned absolutely -->
-    <img
-      src={hero.src}
-      alt="hero"
-      class="absolute inset-0 w-full h-full object-cover lg:rounded-3xl rounded-none"
-    />
-
-    <!-- Top-left Logo Box -->
+  <div class="relative z-10 flex flex-col lg:justify-between w-full">
     <div
-      class="bg-[whitesmoke] relative z-50 p-6 rounded-br-2xl w-[min-content]"
+      class="bg-[whitesmoke] justify-center items-center relative z-50 p-6 rounded-br-2xl w-[min-content]"
     >
       <img
         src={inverse.src}
@@ -37,97 +34,98 @@
         Taxera<span class="font-regular mx-3">|</span>eCompliance
       </h1>
     </div>
-
-    <div class="flex flex-col items-start justify-center h-full w-full">
-      <!-- Main Text Area -->
+    <div class="h-full flex flex-col justify-center items-center lg:justify-end xl:items-start">
       <div
-        class="lg:pl-16 pr-0 pb-0 lg:max-w-none mx-auto text-balance items-center lg:items-start lg:justify-start justify-center lg:text-left text-white relative z-50 flex flex-col gap-4"
+        class="flex flex-col items-center justify-center lg:justify-end xl:justify-end"
       >
         <div
-          class="lg:grid lg:grid-cols-12 flex flex-col justify-end lg:items-end"
+          class="lg:pl-16 pr-0 pb-0 lg:max-w-none mx-auto text-balance lg:items-end items-center justify-center lg:text-left text-white relative z-50 flex flex-col gap-4 w-full"
         >
           <div
-            class="flex flex-col col-span-8 row-start-2 lg:max-w-none justify-end lg:pb-24 lg:p-12"
+            class="lg:grid lg:grid-cols-12 flex flex-col items-center lg:items-end lg:justify-center w-full"
           >
-            <h2
-              class="leading-tight font-bold text-5xl sm:text-[4em] lg:text-[5em] text-[2em] lg:text-left text-center max-w-xl md:max-w-none"
-            >
-              Compliance,{" "}meet Velocity
-            </h2>
-            <h3
-              class="text-[18px] mb-12 leading-normal font-light max-w-xl lg:text-left text-center"
-            >
-              See Risks Before They Happen. Act Smarter Every Day.
-            </h3>
             <div
-              class="flex md:flex-row flex-col gap-4 justify-center lg:justify-start items-center"
+              class="flex flex-col col-span-8 row-start-2 lg:max-w-none justify-center lg:pb-24 lg:p-12"
             >
-              <Button
-                text="Get Started"
-                variant="primary"
-                class="w-[160px] h-[50px]"
-              />
-              <Button
-                text="Learn More"
-                variant="ghost"
-                class="w-[160px] h-[50px]"
-                bgColor="blue-700"
-                hoverColor="blue-700"
-                textColor="white"
-              />
-            </div>
-          </div>
-          <div
-            class="row-span-2 col-start-9 justify-end items-end relative top-[1px] hidden lg:flex"
-          >
-            <img
-              src={inverse.src}
-              alt="decoration"
-              class="z-50 flex justify-end items-end rotate-[180deg] relative"
-            />
-          </div>
-          <div
-            class="flex flex-row text-white justify-end items-end w-full col-span-3 col-start-10 row-start-2"
-          >
-            <div class="flex flex-col">
-              <div
-                class="justify-end items-end relative top-[1px] hidden lg:flex"
+              <h2
+                class="leading-tight font-bold text-5xl sm:text-[4em] xl:text-[5em] text-[2em] lg:text-left text-center max-w-xl md:max-w-none"
               >
-                <img
-                  src={inverse.src}
-                  alt="decoration"
-                  class="z-50 flex justify-end items-end rotate-[180deg] relative"
+                Compliance,{" "}meet Velocity
+              </h2>
+              <h3
+                class="text-[18px] mb-12 leading-normal font-light max-w-xl lg:text-left text-center"
+              >
+                See Risks Before They Happen. Act Smarter Every Day.
+              </h3>
+              <div
+                class="flex md:flex-row flex-col gap-4 justify-center lg:justify-start items-center"
+              >
+                <Button
+                  text="Get Started"
+                  variant="primary"
+                  class="w-[160px] h-[50px]"
+                />
+                <Button
+                  text="Learn More"
+                  variant="ghost"
+                  class="w-[160px] h-[50px]"
+                  bgColor="blue-700"
+                  hoverColor="blue-700"
+                  textColor="white"
                 />
               </div>
-              <!-- Bottom-right Box -->
-              <div
-                class="lg:flex hidden w-full h-full relative z-40 flex-col justify-end items-end row-start-2 lg:w-full bg-[whitesmoke] rounded-tl-2xl p-3"
-              >
+            </div>
+            <div
+              class="row-span-2 col-start-9 justify-end items-end relative top-[1px] hidden lg:flex"
+            >
+              <img
+                src={inverse.src}
+                alt="decoration"
+                class="z-50 flex justify-end items-end rotate-[180deg] relative"
+              />
+            </div>
+            <div
+              class="flex flex-row text-white justify-end items-end w-full col-span-3 col-start-10 row-start-2"
+            >
+              <div class="flex flex-col">
                 <div
-                  class="flex justify-center items-center absolute top-0 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-[60]"
+                  class="justify-end items-end relative top-[1px] hidden lg:flex"
                 >
-                  <div
-                    class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-2"
-                  >
-                    <ArrowRight
-                      class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1"
-                    />
-                  </div>
+                  <img
+                    src={inverse.src}
+                    alt="decoration"
+                    class="z-50 flex justify-end items-end rotate-[180deg] relative"
+                  />
                 </div>
                 <div
-                  class="flex flex-col justify-center items-end rounded-tl-2xl relative z-50"
+                  class="lg:flex hidden w-full h-full relative z-40 flex-col justify-end items-end row-start-2 lg:w-full bg-[whitesmoke] rounded-tl-2xl p-3"
                 >
                   <div
-                    class="flex order-2 justify-end items-center rounded-tl-xl"
+                    class="flex justify-center items-center absolute top-0 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-[60]"
                   >
                     <div
-                      class="flex flex-col gap-4 p-3 pb-0 bg-blue-700 rounded-xl"
+                      class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-2"
                     >
-                      <p class="text-[whitesmoke] text-[16px] text-balance">
-                        Find out how Taxera can help you achieve compliance in
-                        record time, with a few clicks.
-                      </p>
-                      <img src={tax.src} alt="tax" class="rounded-xl pb-3" />
+                      <ArrowRight
+                        class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col justify-center items-end rounded-tl-2xl relative z-50"
+                  >
+                    <div
+                      class="flex order-2 justify-end items-center rounded-tl-xl"
+                    >
+                      <div
+                        class="flex flex-col gap-4 p-3 pb-0 bg-blue-700 rounded-xl"
+                      >
+                        <p class="text-[whitesmoke] text-[16px] text-balance">
+                          Find out how Taxera can help you achieve compliance in
+                          record time, with a few clicks.
+                        </p>
+                        <img src={tax.src} alt="tax" class="rounded-xl pb-3" />
+                      </div>
                     </div>
                   </div>
                 </div>

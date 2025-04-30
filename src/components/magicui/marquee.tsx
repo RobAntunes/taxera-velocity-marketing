@@ -45,14 +45,15 @@ export function Marquee({
     <div
       {...props}
       className={cn(
-        "group flex overflow-hidden p-2 flex-nowrap [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
+        "group flex overflow-hidden p-2 pt-0 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
         "md:[--duration:60s]",
         "lg:[--duration:80s]",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
         },
-        "flex-nowrap",
+        "flex-grow",
+        "bg-[whitesmoke]",
         className,
       )}
     >
@@ -63,7 +64,6 @@ export function Marquee({
             key={i}
             className={cn(
               "flex shrink-0 justify-around [gap:var(--gap)]",
-              "flex-nowrap",
               {
                 "animate-marquee flex-row": !vertical,
                 "animate-marquee-vertical flex-col": vertical,
