@@ -43,8 +43,8 @@
     <nav class="p-4">
       <ul class="space-y-2">
         <li><a href="/" class="block px-3 py-2 rounded hover:bg-gray-100">Home</a></li>
-        <li><a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">About</a></li>
-        <li><a href="/contact" class="block px-3 py-2 rounded hover:bg-gray-100">Contact</a></li>
+        <!-- <li><a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">About</a></li>
+        <li><a href="/contact" class="block px-3 py-2 rounded hover:bg-gray-100">Contact</a></li> -->
         <!-- Add more placeholder links as needed -->
       </ul>
     </nav>
