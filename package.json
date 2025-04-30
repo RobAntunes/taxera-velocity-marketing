@@ -13,6 +13,7 @@
     "@astrojs/svelte": "^7.0.10",
     "@lucide/astro": "^0.488.0",
     "@lucide/svelte": "^0.488.0",
+    "@radix-ui/react-popover": "^1.1.11",
     "@tailwindcss/vite": "^4.1.4",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
