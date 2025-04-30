@@ -11,12 +11,12 @@
   bg-[whitesmoke] lg:mx-16 mx-0 relative 
   bg-cover bg-center lg:rounded-3xl
   bg-[url('/assets/hero.jpg')]
-  flex-grow flex justify-between
+  flex-grow flex justify-between lg:mt-24
 `}
 >
   <div class="relative z-10 flex flex-col lg:justify-between w-full">
     <div
-      class="bg-[whitesmoke] justify-center items-center relative z-50 p-6 rounded-br-2xl w-[min-content]"
+      class="bg-[whitesmoke] justify-center items-center relative z-50 p-6 rounded-br-2xl w-fit"
     >
       <img
         src={inverse.src}
@@ -29,9 +29,9 @@
         class="z-50 absolute right-0 top-0 translate-x-[99%]"
       />
       <h1
-        class="text-blue-700 text-2xl font-bold flex justify-center items-center"
+        class="text-blue-700 w-full lg:text-2xl text-lg font-bold flex justify-center items-center"
       >
-        Taxera<span class="font-regular mx-3">|</span>eCompliance
+        eCompliance
       </h1>
     </div>
     <div class="h-full flex flex-col justify-center items-center lg:justify-end xl:items-start">

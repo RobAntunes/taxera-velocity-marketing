@@ -5,7 +5,7 @@ import { Marquee } from "../components/magicui/marquee.tsx";
 import Card from "../components/Card.svelte";
 import Button from "../components/Button.svelte";
 import "../global.css";
-import { Hamburger } from "svelte-hamburgers";
+import Header from "../components/Header.svelte";
 import inverse from "../assets/inverse-radius.svg";
 import {
   BarChart3,
@@ -92,10 +92,8 @@ const insightPacks = [
 ---
 
 <Layout>
-  <div class="flex justify-end items-end w-full top-0 left-0 z-[99]">
-    <Hamburger type="emphatic" client:only="svelte" />
-  </div>
-  <div class=" w-full mb-0 flex flex-col h-screen">
+  <Header client:only="svelte" />
+  <div class="w-full mb-0 flex flex-col h-screen">
     <Hero client:load />
     <Marquee client:only="react" className="flex-shrink-0">
       <img
@@ -141,7 +139,7 @@ const insightPacks = [
       <div class="relative bg-blue-700 lg:rounded-t-xl">
         <div class="flex w-full flex-col">
           <div
-            class="h-full gap-x-16 p-12 pb-24 lg:p-20 !text-white bg-blue-700 rounded-t-xl"
+            class="h-full gap-x-16 p-4 pb-24 lg:p-20 !text-white bg-blue-700 rounded-t-xl"
           >
             <h1
               class="text-xl text-center lg:text-left lg:text-4xl font-bold mt-4 lg:mt-0"
@@ -210,9 +208,7 @@ const insightPacks = [
       </section>
     </section>
     <section class="h-full w-full bg-[whitesmoke]">
-      <div
-        class="gap-x-4 flex flex-col justify-center items-center"
-      >
+      <div class="gap-x-4 flex flex-col justify-center items-center">
         <div class="col-span-3 w-full">
           <h1 class="text-center text-6xl font-thin pt-12">Insight Packs</h1>
           <h2
@@ -302,12 +298,12 @@ const insightPacks = [
         <img
           src={rocket.src}
           alt="Blast-off illustration"
-          class="w-2/4 lg:max-w-none max-w-[66%] absolute right-0  bottom-0 md:top-12 drop-shadow-2xl"
+          class="w-2/4 lg:max-w-none max-w-[66%] absolute right-0 bottom-0 md:top-12 drop-shadow-2xl"
         />
       </aside>
     </section>
     <section
-      class="flex justify-center items-center bg-[whitesmoke md:mt-42 mt-48 lg:mt-0 flex-col gap-y-8"
+      class="flex justify-center items-center bg-[whitesmoke md:mt-42 mt-24 lg:mt-48 flex-col gap-y-8"
     >
       <h2 class="text-2xl font-thin pb-12 px-12 text-center md:text-3xl">
         We win when you win. That's why we've built an intuitive platform that
