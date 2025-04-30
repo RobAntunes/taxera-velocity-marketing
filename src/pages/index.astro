@@ -93,9 +93,9 @@ const insightPacks = [
 
 <Layout>
   <Header client:only="svelte" />
-  <div class="w-full mb-0 flex flex-col h-screen">
+  <div class="w-full mb-0 flex flex-col h-[94%]">
     <Hero client:load />
-    <Marquee client:only="react" className="flex-shrink-0">
+    <!-- <Marquee client:only="react" className="flex-shrink-0">
       <img
         alt="Transistor"
         src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg"
@@ -131,7 +131,7 @@ const insightPacks = [
         height={48}
         class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 mr-12"
       />
-    </Marquee>
+    </Marquee> -->
   </div>
 
   <div class="bg-[whitesmoke] lg:p-16">
@@ -262,7 +262,7 @@ const insightPacks = [
       </div>
     </section>
     <section
-      class="flex justify-center mx-auto h-full w-full m-24 xl:mr-0 xl:ml-0 bg-[whitesmoke]"
+      class="flex justify-center mx-auto h-full w-full m-24 mb-0 xl:mr-0 xl:ml-0 bg-[whitesmoke]"
     >
       <aside
         class="flex lg:flex-row flex-col w-full lg:w-[90%] m-12 lg:m-24 lg:mb-0 xl:pl-12 rounded-xl bg-white h-full relative shadow-blue-700 shadow-2xl overflow-visible"
@@ -303,7 +303,8 @@ const insightPacks = [
       </aside>
     </section>
     <section
-      class="flex justify-center items-center bg-[whitesmoke md:mt-42 mt-24 lg:mt-48 flex-col gap-y-8"
+      id="how-it-works"
+      class="flex justify-center items-center bg-[whitesmoke] md:mt-52 mt-48 flex-col gap-y-8"
     >
       <h2 class="text-2xl font-thin pb-12 px-12 text-center md:text-3xl">
         We win when you win. That's why we've built an intuitive platform that

@@ -1,6 +1,7 @@
 <script>
   const {
     text,
+    href = null,
     variant = "primary",
     size = { height: "100px", width: "150px" },
     bgColor = "blue-700",
@@ -23,6 +24,7 @@
 
 {#snippet button(text, variant, size, className)}
   <button
+    {href}
     class="{getButtonClass(
       variant
     )} {className} flex flex-row gap-x-2 justify-center items-center group"
