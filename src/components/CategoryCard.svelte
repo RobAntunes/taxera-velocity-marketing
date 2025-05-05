@@ -15,11 +15,12 @@
   import type { Icon as LucideIcon } from "@lucide/svelte";
   import type { Snippet } from "svelte";
 
-  const { withVideo, title, description, iconName, children } = $props<{
+  const { withVideo, title, description, iconName, playbackId, children } = $props<{
     withVideo: boolean;
     title: string;
     description: string;
     iconName: string;
+    playbackId: string;
     children?: Snippet;
   }>();
 
@@ -37,8 +38,6 @@
   const ResolvedIcon = $derived(iconMap[iconName]);
 
   let isOpen = $state<boolean>(false);
-
-  const playbackId = "NqxFLM029SZfV4JxokYnvOkJ01evk6OjGV86CZSs35HzU";
 </script>
 
 <Card
