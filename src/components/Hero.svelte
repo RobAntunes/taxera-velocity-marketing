@@ -15,7 +15,7 @@
   flex-grow flex justify-between lg:mt-18 h-[100vh]
 `}
 >
-  <div class="relative z-10 flex flex-col lg:justify-between w-full">
+  <div class="relative z-10 flex flex-col lg:justify-between w-full h-full">
     <div
       class="bg-[whitesmoke] justify-center items-center relative z-50 p-6 rounded-br-2xl w-fit"
     >
