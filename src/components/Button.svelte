@@ -27,7 +27,7 @@
     onclick={onClick}
     class="{getButtonClass(
       variant
-    )} {className} flex flex-row gap-x-2 justify-center items-center group"
+    )} {className} !w-fit mt-2 xl:mt-0 flex flex-row gap-x-2 justify-center items-center group"
   >
     {text}
     {#if icon}
