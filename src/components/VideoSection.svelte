@@ -41,7 +41,7 @@
 </script>
 
 <div
-  class={`italic flex items-start justify-center font-thin text-lg flex-col lg:flex-row`}
+  class={`w-full italic flex items-center justify-evenly font-thin text-lg flex-col lg:flex-row`}
 >
   {#if expandWithThumbnail}
    <mux-player
@@ -59,7 +59,7 @@
     ></mux-player>
   {:else}
     <div
-      class={`italic flex justify-start items-center lg:justify-center font-thin text-lg flex-col lg:flex-row rounded-full`}
+      class={`w-full italic flex justify-start items-center lg:justify-start font-thin text-lg flex-col lg:flex-row rounded-full`}
     >
       <p
         class="mb-4 lg:mb-0 rounded-full text-center lg:text-left"

@@ -38,7 +38,7 @@
 
   let isOpen = $state<boolean>(false);
 
-  const playbackId = "xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI";
+  const playbackId = "NqxFLM029SZfV4JxokYnvOkJ01evk6OjGV86CZSs35HzU";
 </script>
 
 <Card
