@@ -45,10 +45,10 @@
           class="lg:pl-16 pr-0 pb-0 lg:max-w-none mx-auto text-balance lg:items-end items-center justify-center lg:text-left text-white relative z-50 flex flex-col gap-4 w-full"
         >
           <div
-            class="lg:grid lg:grid-cols-12 flex flex-col items-center lg:items-end lg:justify-center w-full"
+            class="lg:grid lg:grid-cols-12 flex flex-col items-center lg:items-end lg:justify-center gap-16 sm:gap-8 md:gap-24 lg:gap-0 w-full"
           >
             <div
-              class="flex flex-col col-span-8 row-start-2 lg:max-w-none justify-center lg:pb-24 lg:p-12"
+              class="flex flex-col col-span-8 row-start-2 lg:max-w-none justify-center items-center lg:items-start lg:pb-24 lg:p-12"
             >
               <h2
                 class="leading-tight font-bold text-5xl sm:text-[4em] xl:text-[5em] text-[3em] lg:text-left text-center max-w-xl md:max-w-none"
@@ -56,7 +56,7 @@
                 Compliance,{" "}meet Velocity
               </h2>
               <h3
-                class="text-[18px] mb-12 leading-normal font-light max-w-xl lg:text-left text-center"
+                class="text-[18px] lg:mb-12 mb-4 leading-normal font-light max-w-xl lg:text-left text-center"
               >
                 See Risks Before They Happen. Act Smarter Every Day.
               </h3>
@@ -86,59 +86,57 @@
               </div>
             </div>
             <div
-              class="row-span-2 col-start-9 justify-end items-end relative top-[1px] hidden lg:flex"
+              class="hidden lg:flex row-span-2 col-start-9 justify-end items-end relative top-[1px]"
             >
               <img
                 src={inverse.src}
                 alt="decoration"
-                class="z-50 flex justify-end items-end rotate-[180deg] relative"
+                class="z-50 hidden lg:flex justify-end items-end rotate-[180deg] relative"
               />
             </div>
             <div
-              class="flex flex-row text-white justify-end items-end w-full col-span-3 col-start-10 row-start-2"
+              class="flex flex-row text-white justify-end items-end col-span-3 col-start-10 row-start-2"
             >
               <div class="flex flex-col">
                 <div
-                  class="justify-end items-end relative top-[1px] hidden lg:flex"
+                  class="hidden lg:flex justify-end items-end relative top-[1px]"
                 >
                   <img
                     src={inverse.src}
                     alt="decoration"
-                    class="z-50 flex justify-end items-end rotate-[180deg] relative"
+                    class="hidden z-50 lg:flex justify-end items-end rotate-[180deg] relative"
                   />
                 </div>
                 <div
-                  class="lg:flex hidden w-full h-full relative z-40 flex-col justify-end items-end row-start-2 lg:w-full bg-[whitesmoke] rounded-tl-2xl p-3"
+                  class="flex relative z-40 flex-col justify-end items-end lg:w-full lg:bg-[whitesmoke] rounded-tl-2xl p-3"
                 >
                   <div
-                    class="flex justify-center items-center absolute top-0 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-[60]"
+                    class="hidden lg:flex justify-center items-center absolute top-0 -right-3 p-2 bg-[whitesmoke] rounded-full w-[40px] h-[40px] z-[60]"
                   >
-                    <div
-                      class="bg-blue-700 text-[whitesmoke] text-md rounded-full"
-                    >
-                      <VideoSection
-                        buttonText=""
-                        textColor="white"
-                        className="bg-blue-700 border-none mt-0 p-2 rounded-full w-full h-full"
-                        playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}
-                        text=""
-                      />
-                    </div>
+                    <div class="w-full h-full rounded-full bg-blue-700"></div>
                   </div>
                   <div
-                    class="flex flex-col justify-center items-end rounded-tl-2xl relative z-50"
+                    class="w-[90%] sm:w-[60%] md:w-[100%] mx-auto flex flex-col justify-center items-end rounded-tl-2xl relative z-50"
                   >
                     <div
                       class="flex order-2 justify-end items-center rounded-tl-xl"
                     >
                       <div
-                        class="flex flex-col gap-4 p-3 pb-0 bg-blue-700 rounded-xl"
+                        class="flex-col gap-4 p-3 bg-blue-700 rounded-xl justify-center items-center"
                       >
-                        <p class="text-[whitesmoke] text-[16px] text-balance">
-                          Find out how Taxera can help you achieve compliance in
-                          record time, with a few clicks.
-                        </p>
-                        <img src={tax.src} alt="tax" class="rounded-xl pb-3" />
+                        <div
+                          class="bg-blue-700 text-[whitesmoke] text-md rounded-xl"
+                        >
+                          <VideoSection
+                            expandWithThumbnail={true}
+                            className="rounded-xl font-bold"
+                            buttonBgColor="blue-700"
+                            playbackId={"xxuxzinweRsofXLzHkQTloZl01neur3P8adgrqg1SdJI"}
+                            text=""
+                            textColor="white"
+                            buttonText=""
+                          ></VideoSection>
+                        </div>
                       </div>
                     </div>
                   </div>

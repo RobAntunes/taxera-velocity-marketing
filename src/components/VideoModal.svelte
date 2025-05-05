@@ -10,11 +10,12 @@
   }: { 
     isOpen?: boolean, 
     playbackId: string, 
-    onClose: () => void 
+    onClose?: () => void 
   } = $props();
 
   function close() {
     if (onClose) onClose();
+    isOpen = false;
   }
 
   function handleKeydown(event: KeyboardEvent) {
@@ -50,6 +51,7 @@
       }
     };
   });
+
 
 </script>
 

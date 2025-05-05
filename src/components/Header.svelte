@@ -7,7 +7,10 @@
   <div
     class="container mx-auto flex h-full items-center justify-between px-4 md:px-6"
   >
-    <h1 class="text-2xl font-bold">Taxera <span class="text-blue-700 font-thin italic">Velocity</span></h1>
+    <a href="/" class="text-2xl font-bold flex flex-col items-center justify-center">
+      <span class="text-blue-700 font-thin italic">Velocity</span>
+      <span class="font-semibold text-xs leading-2 w-full text-right">by Taxera</span>
+    </a>
     <div class="hidden lg:flex lg:flex-1 justify-start ml-8">
       <DesktopNav />
     </div>
