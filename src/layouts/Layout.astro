@@ -14,18 +14,84 @@ const { title = "Taxera eCompliance" } = Astro.props;
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Velocity | Taxera eCompliance</title>
+    <title>Taxera</title>
+
+    <style>
+      /* Preloader Styles */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background-color: whitesmoke; /* Or your site's primary background */
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Removed font styles as they are not needed for the spinner */
+        opacity: 1;
+        transition: opacity 0.5s ease-out; /* Fade-out transition */
+        pointer-events: auto;
+      }
+
+      #preloader.loaded {
+        opacity: 0;
+        pointer-events: none; /* Allow clicks to pass through after fade */
+      }
+
+      /* Spinner Styles */
+      .spinner {
+        width: 50px; /* Adjust size as needed */
+        height: 50px;
+        border: 5px solid rgba(0, 0, 0, 0.1); /* Light grey border */
+        border-top-color: #0d47a1; /* Blue color for the spinning part (match your theme) */
+        border-radius: 50%;
+        animation: spin 1s linear infinite; /* Spin animation */
+      }
+
+      /* Spin Animation Keyframes */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="h-screen w-screen">
+    <!-- Preloader Element -->
+    <div id="preloader">
+      <!-- Replaced text with spinner div -->
+      <div class="spinner"></div>
+    </div>
+
     <main class="bg-[whitesmoke]">
       <Analytics />
       <Header client:only="svelte" />
       <slot />
       <Footer />
     </main>
+
+    <script>
+      // Preloader Hiding Logic
+      const preloader = document.getElementById("preloader");
+
+      window.addEventListener("load", () => {
+        if (preloader) {
+          preloader.classList.add("loaded");
+          // Optional: Completely remove from DOM after transition
+          setTimeout(() => {
+            if (preloader.parentNode) {
+              preloader.parentNode.removeChild(preloader);
+            }
+          }, 500); // Should match transition duration
+        }
+      });
+    </script>
   </body>
 </html>
 
