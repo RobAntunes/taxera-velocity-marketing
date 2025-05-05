@@ -12,7 +12,7 @@
   bg-[whitesmoke] lg:mx-16 mx-0 relative 
   bg-cover bg-center lg:rounded-3xl
   bg-[url('/assets/hero.jpg')]
-  flex-grow flex justify-between lg:mt-28
+  flex-grow flex justify-between lg:mt-18 h-[100vh]
 `}
 >
   <div class="relative z-10 flex flex-col lg:justify-between w-full">
@@ -61,7 +61,7 @@
                 See Risks Before They Happen. Act Smarter Every Day.
               </h3>
               <div
-                class="flex md:flex-row flex-col gap-4 justify-center lg:justify-start items-center"
+                class="flex sm:flex-row flex-col gap-4 justify-center lg:justify-start items-center"
               >
                 <a
                   href="#how-it-works"
@@ -78,9 +78,9 @@
                   <Button
                     text="Learn More"
                     variant="ghost"
-                    className="w-[160px] h-[50px] bg-transparent rounded-lg "
+                    className="w-[160px] h-[50px] px-4 bg-transparent rounded-lg "
                     hoverColor="blue-700"
-                    textColor="white"
+                    textColor="white" 
                   />
                 </a>
               </div>
@@ -91,7 +91,7 @@
               <img
                 src={inverse.src}
                 alt="decoration"
-                class="z-50 hidden lg:flex justify-end items-end rotate-[180deg] relative"
+                class="z-20 hidden lg:flex justify-end items-end rotate-[180deg] relative"
               />
             </div>
             <div
@@ -104,19 +104,19 @@
                   <img
                     src={inverse.src}
                     alt="decoration"
-                    class="hidden z-50 lg:flex justify-end items-end rotate-[180deg] relative"
+                    class="hidden z-20 lg:flex justify-end items-end rotate-[180deg] relative"
                   />
                 </div>
                 <div
                   class="flex relative z-40 flex-col justify-end items-end lg:w-full lg:bg-[whitesmoke] rounded-tl-2xl p-3"
                 >
                   <div
-                    class="hidden lg:flex justify-center items-center absolute top-0 -right-3 p-2 bg-[whitesmoke] rounded-full w-[40px] h-[40px] z-[60]"
+                    class="hidden lg:flex justify-center items-center absolute top-0 -right-3 p-2 bg-[whitesmoke] rounded-full w-[40px] h-[40px] z-20"
                   >
                     <div class="w-full h-full rounded-full bg-blue-700"></div>
                   </div>
                   <div
-                    class="w-[90%] sm:w-[60%] md:w-[100%] mx-auto flex flex-col justify-center items-end rounded-tl-2xl relative z-50"
+                    class="w-[90%] sm:w-[60%] md:w-[100%] mx-auto flex flex-col justify-center items-end rounded-tl-2xl relative"
                   >
                     <div
                       class="flex order-2 justify-end items-center rounded-tl-xl"

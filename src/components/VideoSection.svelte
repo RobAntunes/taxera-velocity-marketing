@@ -59,7 +59,7 @@
     ></mux-player>
   {:else}
     <div
-      class={`w-full italic flex justify-start items-center lg:justify-start font-thin text-lg flex-col lg:flex-row rounded-full`}
+      class={`w-full italic flex justify-center xl:justify-start items-center font-thin text-lg flex-col xl:flex-row rounded-full`}
     >
       <p
         class="mb-4 lg:mb-0 rounded-full text-center lg:text-left"
@@ -75,7 +75,7 @@
           {textColor}
           icon={ArrowRight}
           onClick={openModal}
-          className={cn("px-4", "rounded-lg", className)}
+          className={cn("px-4", "rounded-lg", "w-full", className)}
         />
       {:else}
         <button
