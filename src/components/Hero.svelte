@@ -48,7 +48,7 @@
             class="lg:grid lg:grid-cols-12 flex flex-col items-center lg:items-end lg:justify-center gap-16 sm:gap-8 md:gap-24 lg:gap-0 w-full"
           >
             <div
-              class="flex flex-col col-span-8 row-start-2 lg:max-w-none justify-center items-center lg:items-start lg:pb-24 lg:p-12"
+              class="flex flex-col col-span-8 row-start-2 lg:max-w-none justify-center items-center lg:items-start lg:pb-24 lg:p-12 md:pt-12 lg:pt-0"
             >
               <h2
                 class="leading-tight font-bold text-5xl sm:text-[4em] xl:text-[5em] text-[3em] lg:text-left text-center max-w-xl md:max-w-none"
@@ -61,11 +61,11 @@
                 See Risks Before They Happen. Act Smarter Every Day.
               </h3>
               <div
-                class="flex sm:flex-row flex-col gap-4 justify-center lg:justify-start items-center"
+                class="w-[60%] flex sm:flex-row flex-col gap-4 justify-center lg:justify-start items-center"
               >
                 <a
                   href="#how-it-works"
-                  class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-600/90 w-[160px] h-[50px]"
+                  class="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-600/90 h-[50px]"
                 >
                   Steps 4 Success
                   <ArrowRight class="w-4 h-4 ml-2" />
@@ -74,11 +74,12 @@
                   href={"https://fefgnmac41fborlf.public.blob.vercel-storage.com/Taxera-eCompliance-zQBDOn4VJr8pF8wNbyaFLNdS0pmvnL.pdf"}
                   download
                   target="_blank"
+                  class="w-full"
                 >
                   <Button
                     text="Learn More"
                     variant="ghost"
-                    className="w-[160px] h-[50px] px-4 bg-transparent rounded-lg "
+                    className="!w-full h-[50px] px-4 bg-transparent rounded-lg "
                     hoverColor="blue-700"
                     textColor="white" 
                   />

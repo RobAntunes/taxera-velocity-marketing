@@ -14,7 +14,8 @@
     expandWithThumbnail = false,
     withButton = true,
     isOpen = $bindable(false),
-    children
+    children,
+    autoplay = false,
   }: {
     playbackId: string;
     text: string;
@@ -26,6 +27,7 @@
     withButton?: boolean;
     isOpen?: boolean;
     children?: any;
+    autoplay?: boolean;
   } = $props();
 
   let isModalOpen = $state(false);
@@ -44,8 +46,11 @@
   class={`w-full italic flex items-center justify-evenly font-thin text-lg flex-col lg:flex-row`}
 >
   {#if expandWithThumbnail}
-   <mux-player
+    <mux-player
       thumbnail-time={0}
+      onload={(event: any) => {
+        event.target.pause();
+      }}
       onclick={(event: any) => {
         openModal();
         event.target.pause();
@@ -55,7 +60,7 @@
       playback-id={playbackId}
       metadata-video-title="Taxera eCompliance Overview"
       class="md:max-w-[500px] !rounded-xl"
-      autoplay={false}
+      {autoplay}
     ></mux-player>
   {:else}
     <div
@@ -75,18 +80,18 @@
           {textColor}
           icon={ArrowRight}
           onClick={openModal}
-          className={cn("px-4", "rounded-lg", "w-full", className)}
+          className={cn("px-4", "rounded-lg", className)}
         />
       {:else}
         <button
           class="mb-4 lg:mb-0 rounded-full text-center lg:text-left"
           onclick={openModal}
         >
-          {@render children?.() }
+          {@render children?.()}
         </button>
       {/if}
     </div>
   {/if}
 </div>
 
-<VideoModal {playbackId} isOpen={isModalOpen} onClose={closeModal} />
+<VideoModal {playbackId} isOpen={isModalOpen} autoplay={autoplay} onClose={closeModal} />

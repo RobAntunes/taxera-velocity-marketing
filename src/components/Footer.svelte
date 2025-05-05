@@ -12,7 +12,7 @@
       <a href="#" class="text-gray-600 hover:text-gray-900">Partners</a> -->
     </nav>
     <div class="mt-16 flex justify-center gap-x-10">
-      <a href="#" class="text-gray-600 hover:text-gray-800">
+      <a href="https://www.linkedin.com/company/taxera/" class="text-gray-600 hover:text-gray-800">
         <span class="sr-only">LinkedIn</span>
         <svg
           width="40px"

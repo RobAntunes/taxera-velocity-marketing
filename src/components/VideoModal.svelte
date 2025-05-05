@@ -3,14 +3,16 @@
   import { X } from "@lucide/svelte";
 
   // Use $props rune for component properties
-  let { 
+  let {
     isOpen = $bindable(false), // Use $bindable if parent needs two-way binding (though here only used for visibility)
     playbackId,
-    onClose 
-  }: { 
-    isOpen?: boolean, 
-    playbackId: string, 
-    onClose?: () => void 
+    onClose,
+    autoplay = false,
+  }: {
+    isOpen?: boolean;
+    playbackId: string;
+    autoplay?: boolean;
+    onClose?: () => void;
   } = $props();
 
   function close() {
@@ -32,7 +34,7 @@
   onDestroy(() => {
     // Ensure scroll is restored if component is destroyed while open
     if (typeof document !== "undefined") {
-      document.body.style.overflow = ""; 
+      document.body.style.overflow = "";
     }
   });
 
@@ -44,15 +46,13 @@
     // Cleanup function for the effect
     return () => {
       if (typeof document !== "undefined") {
-         // Only restore if we are cleaning up the effect while it was 'hidden'
-         // This might be redundant with onDestroy but ensures cleanup if props change rapidly
-         // However, simple onDestroy is usually sufficient for this pattern.
-         // Let's rely on onDestroy for simplicity.
+        // Only restore if we are cleaning up the effect while it was 'hidden'
+        // This might be redundant with onDestroy but ensures cleanup if props change rapidly
+        // However, simple onDestroy is usually sufficient for this pattern.
+        // Let's rely on onDestroy for simplicity.
       }
     };
   });
-
-
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -85,7 +85,7 @@
           playback-id={playbackId}
           metadata-video-title="Taxera eCompliance Overview"
           class="w-full h-full block"
-          autoplay
+          {autoplay}
         ></mux-player>
       {/key}
     </div>
