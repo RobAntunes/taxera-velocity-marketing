@@ -1,50 +1,19 @@
 import * as Popover from "@radix-ui/react-popover";
-import {
-  Check as CheckIcon,
-  Info,
-} from "lucide-react";
+import { Check as CheckIcon, Info } from "lucide-react";
 import { useState } from "react";
 
-const steps = [
-  {
-    id: "01",
-    name: "Connect",
-    description: "your SAP system",
-    detailedDescription:
-      "Securely link your SAP environment to Taxera using our certified connectors. It's a quick setup process.",
-    benefit: "Seamless data integration.",
-  },
-  {
-    id: "02",
-    name: "Subscribe",
-    description: "to Insight Packs",
-    detailedDescription:
-      "Choose from a growing library of Insight Packs tailored for specific tax regulations and business processes.",
-    benefit: "Targeted compliance checks.",
-  },
-  {
-    id: "03",
-    name: "Monitor",
-    description: "your company codes",
-    detailedDescription:
-      "Taxera continuously monitors your selected company codes against the rules in your subscribed Insight Packs.",
-    benefit: "Proactive issue detection.",
-  },
-  {
-    id: "04",
-    name: "Scale",
-    description: "with usage-based pricing",
-    detailedDescription:
-      "Our flexible pricing adapts to your usage, ensuring you only pay for what you need as your business evolves.",
-    benefit: "Cost-effective compliance.",
-  },
-];
+interface StepData {
+  stepTitle?: string;
+  stepDescription?: string;
+  infoText?: string;
+  stepIcon?: string;
+}
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function HiW() {
+export default function HiW({ steps }: { steps: StepData[] }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   const handleStepClick = (index: number) => {
@@ -73,7 +42,7 @@ export default function HiW() {
 
             return (
               <li
-                key={step.id}
+                key={step.stepTitle}
                 className={classNames(
                   "relative lg:flex-1 group transition-colors duration-200 ease-in-out",
                 )}
@@ -122,7 +91,7 @@ export default function HiW() {
                                   : "text-gray-500",
                               )}
                             >
-                              {step.id}
+                              {step.stepIcon}
                             </span>
                           )}
                       </span>
@@ -138,10 +107,10 @@ export default function HiW() {
                               : "text-gray-500",
                           )}
                         >
-                          {step.name}
+                          {step.stepTitle}
                         </span>
                         <span className="block text-sm font-medium text-gray-500">
-                          {step.description}
+                          {step.stepDescription}
                         </span>
                       </div>
                       <Popover.Root>
@@ -171,11 +140,7 @@ export default function HiW() {
                           >
                             <div>
                               <p className="text-sm text-gray-600">
-                                {step
-                                  .detailedDescription}
-                              </p>
-                              <p className="mt-2 text-sm font-semibold italic text-gray-700">
-                                {step.benefit}
+                                {step.infoText}
                               </p>
                             </div>
                             <Popover.Arrow className="fill-white stroke-gray-200 stroke-1" />

@@ -1,4 +1,4 @@
-import { defineType, defineField, type ValidationRule } from 'sanity'
+import { defineType, defineField } from 'sanity'
 
 export default defineType({
   name: 'insightPack',
@@ -9,14 +9,14 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule: ValidationRule) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
       rows: 2,
-      validation: (Rule: ValidationRule) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'points',
@@ -24,7 +24,7 @@ export default defineType({
       type: 'array',
       of: [{ type: 'string' }],
       description: 'Key features or points for this pack.',
-      validation: (Rule: ValidationRule) => Rule.min(1),
+      validation: (Rule) => Rule.min(1),
     }),
     defineField({
       name: 'backgroundImage',
@@ -33,7 +33,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule: ValidationRule) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     // If each pack has a unique CTA different from the main brochure CTA:
     // defineField({

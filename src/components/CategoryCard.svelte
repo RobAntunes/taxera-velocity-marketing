@@ -13,6 +13,7 @@
   // import type { Icon as LucideIconType } from "@lucide/svelte"; // Remove this line
   import type { Snippet, ComponentType } from "svelte"; // Add ComponentType here
   import { onMount } from "svelte";
+  import { PortableText } from '@portabletext/svelte'; // Import PortableText
 
   import Card from "@/components/Card.svelte";
 
@@ -23,6 +24,7 @@
     playbackId = "",
     withVideo = false,
     isActive = true,
+    modalContent = [] // Add modalContent prop
   } = $props<{
     title?: string;
     description?: string;
@@ -30,10 +32,10 @@
     playbackId?: string;
     withVideo?: boolean;
     isActive?: boolean;
+    modalContent?: any[]; // Type for Portable Text
   }>();
 
-  const iconMap: Record<string, ComponentType> = {
-    // Change LucideIconType to ComponentType
+  const iconMap: Record<string, any> = { 
     Receipt: Receipt,
     ChartBar: ChartBar,
     PackageCheck: PackageCheck,
@@ -60,7 +62,8 @@
   });
 
   function handleCardClick() {
-    if (isActive && withVideo && !showInternalModal) {
+    // Only open modal if it's active AND has video OR has modal text content
+    if (isActive && (withVideo || (modalContent && modalContent.length > 0)) && !showInternalModal) {
       showInternalModal = true;
     }
   }
@@ -71,15 +74,15 @@
 </script>
 
 <div
-  class={`category-card-interactive-wrapper h-full w-full !text-left ${!isActive ? "inactive_card_state" : ""} ${isActive && withVideo ? "clickable_card_state" : ""}`.trim()}
+  class={`category-card-interactive-wrapper h-full w-full !text-left ${!isActive ? "inactive_card_state" : ""} ${isActive && (withVideo || (modalContent && modalContent.length > 0)) ? "clickable_card_state" : ""}`.trim()}
   on:click={handleCardClick}
-  role={isActive && withVideo ? "button" : "region"}
-  tabindex={isActive && withVideo ? 0 : -1}
+  role={isActive && (withVideo || (modalContent && modalContent.length > 0)) ? "button" : "region"}
+  tabindex={isActive && (withVideo || (modalContent && modalContent.length > 0)) ? 0 : -1}
   aria-disabled={!isActive}
   on:keydown={(e) =>
     (e.key === "Enter" || e.key === " ") &&
     isActive &&
-    withVideo &&
+    (withVideo || (modalContent && modalContent.length > 0)) &&
     handleCardClick()}
 >
   <Card
@@ -88,7 +91,7 @@
     <div class="card-content-inner p-4 md:p-6">
       <div class="mb-6 flex items-center">
         {#if ResolvedIcon}
-          <ResolvedIcon class="w-6 h-6" />
+          <svelte:component this={ResolvedIcon} class="w-6 h-6" />
         {:else if iconName && iconName !== "DefaultIcon"}
           <span class="icon-name-fallback p-1 border border-dashed rounded"
             >{iconName} (missing)</span
@@ -106,7 +109,7 @@
   </Card>
 </div>
 
-{#if showInternalModal && isActive && withVideo}
+{#if showInternalModal && isActive}
   <div
     class="modal-overlay"
     on:click={closeModal}
@@ -127,28 +130,19 @@
         {title}
       </h2>
 
-      {#if playbackId}
+      {#if withVideo && playbackId}
         <mux-player playback-id={playbackId} stream-type="on-demand" controls
         ></mux-player>
-      {:else}
-        <p>Video content is currently unavailable for this section.</p>
       {/if}
 
-      <div class="cms-text-container">
-        <h4>Additional Information</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.
-        </p>
-      </div>
+      {#if modalContent && modalContent.length > 0}
+        <div class="cms-text-container">
+          <PortableText value={modalContent} />
+        </div>
+      {:else if !withVideo} 
+        <!-- Show this only if there's no video and no modal text -->
+        <p>No additional details or video available for this category.</p>
+      {/if}
     </div>
   </div>
 {/if}
@@ -173,10 +167,14 @@
   .icon-name-fallback {
     font-style: italic;
     font-size: 0.8rem;
-    color: #e2e8f0;
+    color: #e2e8f0; /* Softer color for fallback text */
   }
 
+  /* Ensure card content inner takes up space for consistent height if cards are in a grid */
   .card-content-inner {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to fill card */
   }
 
   .modal-overlay {
@@ -185,27 +183,27 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.65); /* Slightly darker overlay */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5000;
-    padding: 1rem;
+    z-index: 5000; /* Ensure it's on top */
+    padding: 1rem; /* Padding around modal for smaller screens */
   }
 
   .modal-content {
     background-color: white;
-    color: #1a202c;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    width: 100%;
-    max-width: 640px;
-    max-height: 90vh;
-    overflow-y: auto;
+    color: #1a202c; /* Darker text for better readability */
+    padding: 2rem; /* More padding */
+    border-radius: 0.5rem; /* Standard border radius */
+    width: 100%; /* Responsive width */
+    max-width: 640px; /* Max width for larger screens */
+    max-height: 90vh; /* Max height to prevent overflow */
+    overflow-y: auto; /* Scroll for content longer than max-height */
     position: relative;
     box-shadow:
       0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Standard shadow */
   }
 
   .modal-close-button {
@@ -214,20 +212,20 @@
     right: 0.75rem;
     background: transparent;
     border: none;
-    font-size: 2rem;
+    font-size: 2rem; /* Larger close button */
     line-height: 1;
-    font-weight: 300;
+    font-weight: 300; /* Lighter font weight */
     cursor: pointer;
-    color: #718096;
+    color: #718096; /* Tailwind gray-500 */
   }
   .modal-close-button:hover,
   .modal-close-button:focus {
-    color: #1a202c;
+    color: #1a202c; /* Darken on hover/focus */
   }
 
   .modal-title-heading {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.5rem; /* Slightly larger title */
+    font-weight: 700; /* Bold */
     margin-bottom: 1rem;
   }
 
@@ -235,24 +233,56 @@
     width: 100%;
     aspect-ratio: 16 / 9;
     margin-bottom: 1.5rem;
-    border-radius: 0.375rem;
-    overflow: hidden;
+    border-radius: 0.375rem; /* Consistent with Tailwind's rounded-md */
+    overflow: hidden; /* Ensures content respects border radius */
   }
 
   .cms-text-container {
-    margin-top: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.65;
+    margin-top: 1.5rem; /* Space above CMS content if video is present */
+    font-size: 0.95rem; /* Slightly smaller base font for content */
+    line-height: 1.65; /* Good line height for readability */
   }
-  .cms-text-container h4 {
-    font-size: 1.05rem;
-    font-weight: 600;
+  /* Default styling for PortableText output - can be customized further */
+  .cms-text-container :global(h1),
+  .cms-text-container :global(h2),
+  .cms-text-container :global(h3),
+  .cms-text-container :global(h4),
+  .cms-text-container :global(h5),
+  .cms-text-container :global(h6) {
+    font-weight: 600; /* Semibold headings */
     margin-bottom: 0.75rem;
+    margin-top: 1.25rem; /* Space above headings */
+    color: #2d3748; /* Tailwind gray-700 */
   }
-  .cms-text-container p {
+  .cms-text-container :global(h4) { /* More specific if needed */
+    font-size: 1.05rem; 
+  }
+  .cms-text-container :global(p) {
     margin-bottom: 1rem;
   }
-  .cms-text-container p:last-child {
+  .cms-text-container :global(p:last-child) {
     margin-bottom: 0;
+  }
+  .cms-text-container :global(ul),
+  .cms-text-container :global(ol) {
+    margin-left: 1.5rem; /* Indent lists */
+    margin-bottom: 1rem;
+  }
+  .cms-text-container :global(li) {
+    margin-bottom: 0.25rem;
+  }
+  .cms-text-container :global(a) {
+    color: #2b6cb0; /* Tailwind blue-700 */
+    text-decoration: underline;
+  }
+  .cms-text-container :global(a:hover) {
+    color: #2c5282; /* Tailwind blue-800 */
+  }
+  .cms-text-container :global(blockquote) {
+    border-left: 4px solid #cbd5e0; /* Tailwind gray-400 */
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+    color: #4a5568; /* Tailwind gray-600 */
   }
 </style>
