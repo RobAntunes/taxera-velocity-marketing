@@ -53,7 +53,7 @@
       }}
       onclick={(event: any) => {
         openModal();
-        event.target.pause();
+        event.target.pause()
       }}
       aria-role="button"
       stream-type="on-demand"

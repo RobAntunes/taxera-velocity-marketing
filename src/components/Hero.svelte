@@ -81,7 +81,7 @@
                     variant="ghost"
                     className="!w-full h-[50px] px-4 bg-transparent rounded-lg "
                     hoverColor="blue-700"
-                    textColor="white" 
+                    textColor="white"
                   />
                 </a>
               </div>
@@ -129,6 +129,7 @@
                           class="bg-blue-700 text-[whitesmoke] text-md rounded-xl"
                         >
                           <VideoSection
+                            autoplay={false}
                             expandWithThumbnail={true}
                             className="rounded-xl font-bold"
                             buttonBgColor="blue-700"

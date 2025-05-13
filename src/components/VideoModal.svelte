@@ -85,7 +85,7 @@
           playback-id={playbackId}
           metadata-video-title="Taxera eCompliance Overview"
           class="w-full h-full block"
-          {autoplay}
+          autoplay={!autoplay}
         ></mux-player>
       {/key}
     </div>
