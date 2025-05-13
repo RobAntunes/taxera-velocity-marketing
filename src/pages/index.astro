@@ -333,9 +333,9 @@ const hiwSteps: StepData[] = howItWorks?.steps || [];
               </h1>
               {velocityPromo.videoSection && (
                 <VideoSection
+                  variant="primary"
                   client:load
-                  className="!h-[4rem] rounded-xl font-bold"
-                  buttonBgColor={(velocityPromo.videoSection as VideoEmbed).buttonBgColor || "blue-700"}
+                  className="!h-[4rem] rounded-xl font-bold !bg-blue-700"
                   playbackId={(velocityPromo.videoSection as VideoEmbed).playbackId || "xc4o4Eb62wSMeNmIgLGhAjV00DAUWJnjjbhqOWh2zh88"}
                   textColor={(velocityPromo.videoSection as VideoEmbed).textColor || "white"}
                   buttonText={(velocityPromo.videoSection as VideoEmbed).buttonText || "Blast off"}

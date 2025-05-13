@@ -91,7 +91,7 @@ export default function HiW({ steps }: { steps: StepData[] }) {
                                   : "text-gray-500",
                               )}
                             >
-                              {step.stepIcon}
+                              {stepIdx + 1}
                             </span>
                           )}
                       </span>

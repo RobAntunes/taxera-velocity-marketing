@@ -127,7 +127,7 @@
                   <Button
                     text={secondaryCta.text || "Learn More"}
                     variant={secondaryCta.buttonVariant || "ghost"} 
-                    className="xl:!w-full w-[70%] h-[50px] px-4 bg-transparent rounded-lg !text-sm" 
+                    className="xl:!w-full w-[70%] h-[50px] px-4 rounded-lg !text-sm" 
                     hoverColor="blue-700" 
                     textColor="white"
                     iconName={secondaryCta.iconName}

@@ -51,9 +51,9 @@
         return `bg-${bgColor} text-${effectiveTextColor} border border-${bgColor} hover:bg-opacity-80`;
       case "ghost":
         // Ensure hoverColor is defined, provide a fallback if necessary for opacity classes
-        return `bg-transparent text-${effectiveTextColor} border border-${effectiveTextColor} hover:bg-${hoverColor || 'gray-200'} hover:bg-opacity-20`;
+        return `text-${effectiveTextColor} border border-${effectiveTextColor} hover:bg-${hoverColor || 'gray-200'} hover:bg-opacity-20`;
       case "outline":
-        return `bg-transparent text-${effectiveTextColor} border border-${effectiveTextColor} hover:bg-${hoverColor || effectiveTextColor} hover:text-${(hoverColor && hoverColor !== effectiveTextColor) ? 'white' : effectiveTextColor} hover:border-${hoverColor || effectiveTextColor}`;
+        return `text-${effectiveTextColor} border border-${effectiveTextColor} hover:bg-${hoverColor || effectiveTextColor} hover:text-${(hoverColor && hoverColor !== effectiveTextColor) ? 'white' : effectiveTextColor} hover:border-${hoverColor || effectiveTextColor}`;
       default:
         return `bg-${bgColor} text-${effectiveTextColor} border border-${effectiveTextColor}`;
     }
