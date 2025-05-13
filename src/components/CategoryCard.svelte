@@ -136,7 +136,7 @@
       {/if}
 
       {#if modalContent && modalContent.length > 0}
-        <div class="cms-text-container">
+        <div class="cms-text-container !text-left">
           <PortableText value={modalContent} />
         </div>
       {:else if !withVideo} 

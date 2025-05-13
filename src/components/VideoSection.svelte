@@ -6,11 +6,11 @@
 
   let {
     playbackId,
-    text,
-    buttonText,
-    buttonBgColor,
-    textColor,
-    className,
+    text = "Need some help deciding?",
+    buttonText = "Watch Video",
+    buttonBgColor = "blue-700",
+    textColor = "white",
+    className = "",
     expandWithThumbnail = false,
     withButton = true,
     isOpen = $bindable(false),
@@ -18,8 +18,8 @@
     autoplay = false,
   }: {
     playbackId: string;
-    text: string;
-    buttonText: string;
+    text?: string;
+    buttonText?: string;
     buttonBgColor?: string;
     textColor?: string;
     className?: string;
@@ -30,15 +30,12 @@
     autoplay?: boolean;
   } = $props();
 
-  let isModalOpen = $state(false);
-
   function openModal() {
-    console.log("openModal called, setting isModalOpen to true");
-    isModalOpen = true;
+    isOpen = true;
   }
 
   function closeModal() {
-    isModalOpen = false;
+    isOpen = false;
   }
 </script>
 
@@ -48,18 +45,18 @@
   {#if expandWithThumbnail}
     <mux-player
       thumbnail-time={0}
-      onload={(event: any) => {
+      on:load={(event: any) => {
         event.target.pause();
       }}
-      onclick={(event: any) => {
+      on:click={(event: any) => {
         openModal();
-        event.target.pause()
+        event.target.pause();
       }}
       aria-role="button"
       stream-type="on-demand"
       playback-id={playbackId}
       metadata-video-title="Taxera eCompliance Overview"
-      class="md:max-w-[500px] !rounded-xl"
+      class="md:max-w-[500px] !rounded-xl cursor-pointer"
       {autoplay}
     ></mux-player>
   {:else}
@@ -68,7 +65,7 @@
     >
       <p
         class="mb-4 lg:mb-0 rounded-full text-center lg:text-left"
-        style={textColor ? `color: ${textColor}` : ""}
+        style:color={textColor}
       >
         {text}
       </p>
@@ -78,14 +75,14 @@
           text={buttonText}
           bgColor={buttonBgColor}
           {textColor}
-          icon={ArrowRight}
+          iconName="ArrowRight"
           onClick={openModal}
           className={cn("px-4", "rounded-lg", className)}
         />
       {:else}
         <button
-          class="mb-4 lg:mb-0 rounded-full text-center lg:text-left"
-          onclick={openModal}
+          class="mb-4 lg:mb-0 rounded-full text-center lg:text-left p-2 hover:bg-gray-200 transition-colors duration-200"
+          on:click={openModal}
         >
           {@render children?.()}
         </button>
@@ -94,4 +91,4 @@
   {/if}
 </div>
 
-<VideoModal {playbackId} isOpen={isModalOpen} autoplay={autoplay} onClose={closeModal} />
+<VideoModal {playbackId} {isOpen} {autoplay} onClose={closeModal} />

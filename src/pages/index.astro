@@ -16,7 +16,7 @@ import { Marquee } from "@/components/magicui/marquee";
 import HiW from "../components/HiW";
 
 // Sanity Client
-import { client } from '../lib/sanityClient';
+import { client } from "../lib/sanityClient";
 
 // Define types for Sanity data structures to help with TypeScript
 interface CallToAction {
@@ -156,7 +156,8 @@ const hero = pageData?.heroSection || {};
 const clientLogos: ClientLogo[] = pageData?.clientLogos || [];
 const productIntro = pageData?.productIntroSection || {};
 const complianceSection = pageData?.complianceCategoriesSection || {};
-const complianceCategories: ComplianceCategoryData[] = complianceSection?.categories || [];
+const complianceCategories: ComplianceCategoryData[] =
+  complianceSection?.categories || [];
 const insightSection = pageData?.insightPacksSection || {};
 const insightPacks: InsightPackData[] = insightSection?.packs || [];
 const velocityPromo = pageData?.velocityPromoSection || {};
@@ -165,9 +166,11 @@ const hiwSteps: StepData[] = howItWorks?.steps || [];
 
 // Removed old hardcoded arrays and ComplianceCategory interface
 // Fallbacks are now handled by defaulting to empty arrays/objects from pageData
-
 ---
-{/* <Layout seo={seo}> Temporarily commented out until Layout.astro is updated */}
+
+{
+  /* <Layout seo={seo}> Temporarily commented out until Layout.astro is updated */
+}
 <Layout>
   <div class="w-full mb-0 flex flex-col mt-16 lg:mt-0 h-[calc(100%-20px)]">
     <Hero
@@ -180,71 +183,118 @@ const hiwSteps: StepData[] = howItWorks?.steps || [];
       backgroundImageAlt={hero.backgroundImageAlt}
       videoPlaybackId={hero.videoPlaybackId}
     />
-    {clientLogos.length > 0 && (
-      <Marquee client:only="react" className="flex-shrink-0">
-        {clientLogos.map((logo: ClientLogo) => (
-          <img
-            alt={logo.logoAlt || "Client logo"} 
-            src={logo.logoUrl}
-            width={158}
-            height={48}
-            class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 !text-neutral-900 mr-8 md:mr-12 lg:mr-16"
-          />
-        ))}
-      </Marquee>
-    )}
+    {
+      clientLogos.length > 0 && (
+        <Marquee client:only="react" className="flex-shrink-0">
+          {clientLogos.map((logo: ClientLogo) => (
+            <img
+              alt={logo.logoAlt || "Client logo"}
+              src={logo.logoUrl}
+              width={158}
+              height={48}
+              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 !text-neutral-900 mr-8 md:mr-12 lg:mr-16"
+            />
+          ))}
+        </Marquee>
+      )
+    }
   </div>
 
   <div class="bg-[whitesmoke] lg:p-16 lg:pt-6">
     <section class="h-full lg:bg-[whitesmoke] bg-blue-700 rounded-t-xl">
       <div class="relative bg-blue-700 lg:rounded-t-xl">
         <div class="flex w-full flex-col">
-          <div class="h-full gap-x-16 p-4 pb-12 lg:p-20 lg:pr-8 !text-white bg-blue-700 rounded-t-xl">
-            <h1 class="text-xl text-center lg:text-left lg:text-4xl font-bold mt-4 lg:mt-0">
+          <div
+            class="h-full gap-x-16 p-4 pb-12 lg:p-20 lg:pr-8 !text-white bg-blue-700 rounded-t-xl"
+          >
+            <h1
+              class="text-xl text-center lg:text-left lg:text-4xl font-bold mt-4 lg:mt-0"
+            >
               {productIntro.mainTitle || "Velocity"}
               {productIntro.subTitle && <span class="font-thin mx-3">|</span>}
-              {productIntro.subTitle && <span class="font-thin italic">{productIntro.subTitle}</span>}
+              {
+                productIntro.subTitle && (
+                  <span class="font-thin italic">{productIntro.subTitle}</span>
+                )
+              }
             </h1>
-            <div class="w-full flex flex-col md:justify-center items-center gap-y-4">
+            <div
+              class="w-full flex flex-col md:justify-center items-center gap-y-4"
+            >
               <h2 class="lg:text-2xl text-xl font-thin p-6 pb-0 text-balance">
-                {productIntro.descriptionLine1 || "Taxera eCompliance delivers rapid integration..."}
+                {
+                  productIntro.descriptionLine1 ||
+                    "Taxera eCompliance delivers rapid integration..."
+                }
               </h2>
-              <h2 class="lg:text-2xl text-xl font-thin p-6 pt-4 text-balance mb-12">
-                {productIntro.descriptionLine2 || "Clear visualizations and actionable intelligence..."}
+              <h2
+                class="lg:text-2xl text-xl font-thin p-6 pt-4 text-balance mb-12"
+              >
+                {
+                  productIntro.descriptionLine2 ||
+                    "Clear visualizations and actionable intelligence..."
+                }
               </h2>
-              {productIntro.videoSection && (
-                <VideoSection
-                  client:load
-                  buttonText={(productIntro.videoSection as VideoEmbed).buttonText || "You'll never look back"}
-                  textColor={(productIntro.videoSection as VideoEmbed).textColor || "white"}
-                  buttonBgColor={(productIntro.videoSection as VideoEmbed).buttonBgColor}
-                  className="rounded-full xl:ml-4 h-min px-6 pl-12 justify-center items-center text-lg"
-                  autoPlay={(productIntro.videoSection as VideoEmbed).autoPlay || false}
-                  playbackId={(productIntro.videoSection as VideoEmbed).playbackId || "xc4o4Eb62wSMeNmIgLGhAjV00DAUWJnjjbhqOWh2zh88"}
-                  text={(productIntro.videoSection as VideoEmbed).captionText}
-                />
-              )}
+              {
+                productIntro.videoSection && (
+                  <VideoSection
+                    client:load
+                    buttonText={
+                      (productIntro.videoSection as VideoEmbed).buttonText ||
+                      "You'll never look back"
+                    }
+                    textColor={
+                      (productIntro.videoSection as VideoEmbed).textColor ||
+                      "white"
+                    }
+                    buttonBgColor={
+                      (productIntro.videoSection as VideoEmbed).buttonBgColor
+                    }
+                    className="rounded-full xl:ml-4 h-min px-6 pl-12 justify-center items-center text-lg"
+                    autoPlay={
+                      (productIntro.videoSection as VideoEmbed).autoPlay ||
+                      false
+                    }
+                    playbackId={
+                      (productIntro.videoSection as VideoEmbed).playbackId ||
+                      "xc4o4Eb62wSMeNmIgLGhAjV00DAUWJnjjbhqOWh2zh88"
+                    }
+                    text={(productIntro.videoSection as VideoEmbed).captionText}
+                  />
+                )
+              }
             </div>
           </div>
         </div>
       </div>
       <section class="bg-blue-700 rounded-b-xl h-full p-6 md:p-12">
         <div class="flex rounded-b-xl justify-center items-center">
-          <div class="font-light pt-0 rounded-b-xl p-4 flex flex-col gap-y-4 text-white text-center !text-lg">
-            <p>{complianceSection.introductionText || "Click an industry to learn more. Additional industries coming soon!"}</p>
-            <div class="flex flex-col md:grid xl:grid-cols-4 gap-4 w-full h-full lg:grid-cols-2 text-balance rounded-b-xl bg-blue-700 justify-center items-center">
-              {complianceCategories.map((el: ComplianceCategoryData, i) => (
-                <CategoryCard
-                  client:load
-                  title={el.title}
-                  description={el.description}
-                  iconName={el.iconName}
-                  isActive={el.isActive}
-                  withVideo={el.hasVideo}
-                  playbackId={el.hasVideo ? el.videoPlaybackId : ""}
-                  modalContent={el.modalText}
-                />
-              ))}
+          <div
+            class="font-light pt-0 rounded-b-xl p-4 flex flex-col gap-y-4 text-white text-center !text-lg"
+          >
+            <p>
+              {
+                complianceSection.introductionText ||
+                  "Click an industry to learn more. Additional industries coming soon!"
+              }
+            </p>
+            <div
+              class="flex flex-col md:grid xl:grid-cols-4 gap-4 w-full h-full lg:grid-cols-2 text-balance rounded-b-xl bg-blue-700 justify-center items-center"
+            >
+              {
+                complianceCategories.map((el: ComplianceCategoryData, i) => (
+                  <CategoryCard
+                    client:load
+                    title={el.title}
+                    description={el.description}
+                    iconName={el.iconName}
+                    isActive={el.isActive}
+                    withVideo={el.hasVideo}
+                    playbackId={el.hasVideo ? el.videoPlaybackId : ""}
+                    modalContent={el.modalText}
+                  />
+                ))
+              }
             </div>
           </div>
         </div>
@@ -254,95 +304,170 @@ const hiwSteps: StepData[] = howItWorks?.steps || [];
     <section class="h-full w-full bg-[whitesmoke]">
       <div class="gap-x-4 flex flex-col justify-center items-center">
         <div class="col-span-3 w-full">
-          <h1 class="text-center text-6xl font-thin pt-12">{insightSection.sectionTitle || "Insight Packs"}</h1>
-          <h2 class="text-left md:text-center text-balance lg:text-2xl text-lg font-thin max-w-7xl p-6 mx-auto pt-6 mb-12">
-            {insightSection.description || "Insight Packs deliver instant, business-ready KPIs..."}
+          <h1 class="text-center text-6xl font-thin pt-12">
+            {insightSection.sectionTitle || "Insight Packs"}
+          </h1>
+          <h2
+            class="text-left md:text-center text-balance lg:text-2xl text-lg font-thin max-w-7xl p-6 mx-auto pt-6 mb-12"
+          >
+            {
+              insightSection.description ||
+                "Insight Packs deliver instant, business-ready KPIs..."
+            }
           </h2>
-          {insightSection.brochureCallToAction && (
-            <div class="flex my-4 lg:flex-row flex-col justify-center items-center gap-x-4 gap-y-4 font-thin">
-              <p class="lg:text-2xl text-xl">{insightSection.ctaText || "Want the full picture?"}</p>
-              <a
-                href={(insightSection.brochureCallToAction as CallToAction).linkUrl || "#"}
-                target={(insightSection.brochureCallToAction as CallToAction).targetBlank ? "_blank" : "_self"}
-                rel={(insightSection.brochureCallToAction as CallToAction).targetBlank ? "noopener noreferrer" : ""}
-                download={(insightSection.brochureCallToAction as CallToAction).isDownload}
-              >
-                <Button
-                  textColor={(insightSection.brochureCallToAction as CallToAction).buttonVariant === 'primary' ? 'white' : 'blue-700'} 
-                  text={(insightSection.brochureCallToAction as CallToAction).text || "Find my pack"}
-                  className="lg:w-[16rem] px-6 h-[2rem] rounded-full"
-                  iconName={(insightSection.brochureCallToAction as CallToAction).iconName}
-                />
-              </a>
-            </div>
-          )}
-        </div>
-        <div class="col-span-3 flex flex-col lg:gap-y-8 lg:flex-row lg:gap-x-4 mx-6 lg:mx-0">
-          {insightPacks.map((el: InsightPackData) => (
-            <div class="relative flex flex-col md:flex-row items-end justify-end p-12 rounded-lg text-white mt-12 aspect-square">
-              <div class="absolute inset-0">
-                <ImageCard
-                  client:load
-                  img={el.backgroundImageUrl}
-                  alt={el.backgroundImageAlt}
-                  hotspot={el.imageHotspot}
-                  crop={el.imageCrop}
-                />
+          {
+            insightSection.brochureCallToAction && (
+              <div class="flex my-4 lg:flex-row flex-col justify-center items-center gap-x-4 gap-y-4 font-thin">
+                <p class="lg:text-2xl text-xl">
+                  {insightSection.ctaText || "Want the full picture?"}
+                </p>
+                <a
+                  href={
+                    (insightSection.brochureCallToAction as CallToAction)
+                      .linkUrl || "#"
+                  }
+                  target={
+                    (insightSection.brochureCallToAction as CallToAction)
+                      .targetBlank
+                      ? "_blank"
+                      : "_self"
+                  }
+                  rel={
+                    (insightSection.brochureCallToAction as CallToAction)
+                      .targetBlank
+                      ? "noopener noreferrer"
+                      : ""
+                  }
+                  download={
+                    (insightSection.brochureCallToAction as CallToAction)
+                      .isDownload
+                  }
+                >
+                  <Button
+                    textColor={
+                      (insightSection.brochureCallToAction as CallToAction)
+                        .buttonVariant === "primary"
+                        ? "white"
+                        : "blue-700"
+                    }
+                    text={
+                      (insightSection.brochureCallToAction as CallToAction)
+                        .text || "Find my pack"
+                    }
+                    className="lg:w-[16rem] px-6 h-[2rem] rounded-full"
+                    iconName={
+                      (insightSection.brochureCallToAction as CallToAction)
+                        .iconName
+                    }
+                  />
+                </a>
               </div>
-              <div class="flex justify-center items-center absolute -top-3 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-50">
-                <div class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-5">
-                  {/* <ArrowRight class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1" /> */}
+            )
+          }
+        </div>
+        <div
+          class="col-span-3 flex flex-col lg:gap-y-8 lg:flex-row lg:gap-x-4 mx-6 lg:mx-0"
+        >
+          {
+            insightPacks.map((el: InsightPackData) => (
+              <div class="relative flex flex-col md:flex-row items-end justify-end p-12 rounded-lg text-white mt-12 aspect-square">
+                <div class="absolute inset-0">
+                  <ImageCard
+                    client:load
+                    img={el.backgroundImageUrl}
+                    alt={el.backgroundImageAlt}
+                    hotspot={el.imageHotspot}
+                    crop={el.imageCrop}
+                  />
+                </div>
+                <div class="flex justify-center items-center absolute -top-3 -right-3 bg-[whitesmoke] rounded-full h-[60px] w-[60px] z-50">
+                  <div class="bg-blue-700 text-[whitesmoke] text-md rounded-full p-5">
+                    {/* <ArrowRight class="hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:translate-x-1" /> */}
+                  </div>
+                </div>
+                <div class="relative">
+                  <h1 class="text-5xl">{el.title}</h1>
+                  <p class="text-lg text-balance">{el.description}</p>
+                  {el.points && el.points.length > 0 && (
+                    <ul class="flex flex-col gap-x-4 pt-4 text-lg list-disc pl-5">
+                      {el.points.map((point: string) => (
+                        <li class="text-sm">{point}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
-              <div class="relative">
-                <h1 class="text-5xl">{el.title}</h1>
-                <p class="text-lg text-balance">{el.description}</p>
-                {el.points && el.points.length > 0 && (
-                  <ul class="flex flex-col gap-x-4 pt-4 text-lg list-disc pl-5">
-                    {el.points.map((point: string) => (
-                      <li class="text-sm">{point}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
 
-    <section class="flex justify-center mx-auto h-full w-full m-24 mb-0 xl:mr-0 xl:ml-0 bg-[whitesmoke]">
-      <aside class="flex lg:flex-row flex-col w-full m-6 lg:m-24 lg:mb-0 xl:pl-12 rounded-xl bg-white h-full relative shadow-blue-700 shadow-2xl overflow-visible">
-        <div class="max-w-4xl flex flex-col items-center justify-center lg:p-12 p-6">
+    <section
+      class="flex justify-center mx-auto h-full w-full m-24 mb-0 xl:mr-0 xl:ml-0 bg-[whitesmoke]"
+    >
+      <aside
+        class="flex lg:flex-row flex-col w-full m-6 lg:m-24 lg:mb-0 xl:pl-12 rounded-xl bg-white h-full relative shadow-blue-700 shadow-2xl overflow-visible"
+      >
+        <div
+          class="max-w-4xl flex flex-col items-center justify-center lg:p-12 p-6"
+        >
           <div class="relative flex flex-col">
-            <div class="relative -top-20 lg:-left-46 py-3 pl-6 pr-12 flex flex-col items-center font-bold text-white bg-blue-700 shadow-2xl lg:p-12 rounded-lg lg:w-[30rem]">
+            <div
+              class="relative -top-20 lg:-left-46 py-3 pl-6 pr-12 flex flex-col items-center font-bold text-white bg-blue-700 shadow-2xl lg:p-12 rounded-lg lg:w-[30rem]"
+            >
               <div>
-                <h1 class="lg:text-6xl text-4xl">{velocityPromo.mainTitleLeft || "Velocity"}</h1>
-                {velocityPromo.subTitleLeft && (
-                  <p class="lg:text-3xl text-xl font-thin text-balance text-right relative">
-                    {velocityPromo.subTitleLeft}
-                  </p>
-                )}
+                <h1 class="lg:text-6xl text-4xl">
+                  {velocityPromo.mainTitleLeft || "Velocity"}
+                </h1>
+                {
+                  velocityPromo.subTitleLeft && (
+                    <p class="lg:text-3xl text-xl font-thin text-balance text-right relative">
+                      {velocityPromo.subTitleLeft}
+                    </p>
+                  )
+                }
               </div>
             </div>
           </div>
           <div class="h-full w-full relative flex flex-col">
             <div class="flex flex-col gap-y-8 md:pl-12">
-              <h1 class="text-left text-2xl md:text-4xl lg:text-5xl font-bold text-blue-700">
+              <h1
+                class="text-left text-2xl md:text-4xl lg:text-5xl font-bold text-blue-700"
+              >
                 {velocityPromo.mainTitleRight || "There's no going back."}
               </h1>
-              {velocityPromo.videoSection && (
-                <VideoSection
-                  client:load
-                  className="!h-[4rem] rounded-xl font-bold"
-                  buttonBgColor={(velocityPromo.videoSection as VideoEmbed).buttonBgColor || "blue-700"}
-                  playbackId={(velocityPromo.videoSection as VideoEmbed).playbackId || "xc4o4Eb62wSMeNmIgLGhAjV00DAUWJnjjbhqOWh2zh88"}
-                  textColor={(velocityPromo.videoSection as VideoEmbed).textColor || "white"}
-                  buttonText={(velocityPromo.videoSection as VideoEmbed).buttonText || "Blast off"}
-                  autoPlay={(velocityPromo.videoSection as VideoEmbed).autoPlay || false}
-                  text={(velocityPromo.videoSection as VideoEmbed).captionText}
-                />
-              )}
+              {
+                velocityPromo.videoSection && (
+                  <VideoSection
+                    client:load
+                    className="!h-[4rem] rounded-xl font-bold"
+                    buttonBgColor={
+                      (velocityPromo.videoSection as VideoEmbed)
+                        .buttonBgColor || "blue-700"
+                    }
+                    playbackId={
+                      (velocityPromo.videoSection as VideoEmbed).playbackId ||
+                      "xc4o4Eb62wSMeNmIgLGhAjV00DAUWJnjjbhqOWh2zh88"
+                    }
+                    textColor={
+                      (velocityPromo.videoSection as VideoEmbed).textColor ||
+                      "white"
+                    }
+                    buttonText={
+                      (velocityPromo.videoSection as VideoEmbed).buttonText ||
+                      "Blast off"
+                    }
+                    autoPlay={
+                      (velocityPromo.videoSection as VideoEmbed).autoPlay ||
+                      false
+                    }
+                    text={
+                      (velocityPromo.videoSection as VideoEmbed).captionText
+                    }
+                  />
+                )
+              }
             </div>
           </div>
         </div>
@@ -354,9 +479,15 @@ const hiwSteps: StepData[] = howItWorks?.steps || [];
       </aside>
     </section>
 
-    <section id="how-it-works" class="flex justify-center items-center bg-[whitesmoke] md:mt-52 mt-48 flex-col gap-y-8">
+    <section
+      id="how-it-works"
+      class="flex justify-center items-center bg-[whitesmoke] md:mt-52 mt-48 flex-col gap-y-8"
+    >
       <h2 class="text-2xl font-thin pb-12 px-12 text-center md:text-3xl">
-        {howItWorks.tagline || "We win when you win. That's why we've built an intuitive platform that "}
+        {
+          howItWorks.tagline ||
+            "We win when you win. That's why we've built an intuitive platform that "
+        }
         <span class="italic text-blue-700">just works</span>.
       </h2>
       <h2 class="text-2xl font-regular italic text-blue-700">
@@ -367,5 +498,7 @@ const hiwSteps: StepData[] = howItWorks?.steps || [];
 
     {/* Stats section removed for now, can be added later if needed */}
   </div>
-  {/* Script for playButton-0 is removed as modal logic should be within CategoryCard.svelte */}
+  {
+    /* Script for playButton-0 is removed as modal logic should be within CategoryCard.svelte */
+  }
 </Layout>
