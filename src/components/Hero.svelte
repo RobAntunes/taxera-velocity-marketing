@@ -51,6 +51,7 @@
   //   return iconMap[secondaryCta.iconName] || null;
   // })());
 
+  console.log(videoPlaybackId);
 </script>
 
 <section
@@ -114,7 +115,7 @@
                     href={primaryCta.linkUrl}
                     target={primaryCta.targetBlank ? '_blank' : '_self'}
                     rel={primaryCta.targetBlank ? 'noopener noreferrer' : ''}
-                    class="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-600/90 h-[50px] px-6"
+                    class="w-[70%] xl:!w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-blue-600 text-white hover:bg-blue-600/90 h-[50px] px-6"
                   >
                     {primaryCta.text || "Action"}
                     {#if PrimaryCtaIcon}
@@ -126,7 +127,7 @@
                   <Button
                     text={secondaryCta.text || "Learn More"}
                     variant={secondaryCta.buttonVariant || "ghost"} 
-                    className="!w-full h-[50px] px-4 bg-transparent rounded-lg" 
+                    className="xl:!w-full w-[70%] h-[50px] px-4 bg-transparent rounded-lg !text-sm" 
                     hoverColor="blue-700" 
                     textColor="white"
                     iconName={secondaryCta.iconName}
@@ -184,8 +185,8 @@
                             <VideoSection
                               autoplay={false} 
                               expandWithThumbnail={true}
-                              className="rounded-xl font-bold"
-                              playbackId={videoPlaybackId.toString()} 
+                              className="rounded-xl font-bold py-0"
+                              playbackId={videoPlaybackId} 
                               text="" 
                               buttonText="" 
                               withButton={false}                              

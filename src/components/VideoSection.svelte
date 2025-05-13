@@ -77,7 +77,7 @@
           {textColor}
           iconName="ArrowRight"
           onClick={openModal}
-          className={cn("px-4", "rounded-lg", className)}
+          className={cn("px-4", "rounded-lg", "md:mt-4", className)}
         />
       {:else}
         <button
